@@ -21,19 +21,19 @@ These projects will be automatically added into [https://projects.ce.pdn.ac.lk](
   "title": "This is the title of the project",
   "team": [
     {
-      "name": "Team Member Name 1",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Kanishka Dilhan",
+      "email": "e17065@eng.pdn.ac.lk",
+      "eNumber": "E/17/065"
     },
     {
-      "name": "Team Member Name 2",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Dananjaya Morais",
+      "email": "e17212@eng.pdn.ac.lk",
+      "eNumber": "E/17/212"
     },
     {
-      "name": "Team Member Name 3",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Ishini Udara",
+      "email": "e17312@eng.pdn.ac.lk",
+      "eNumber": "E/17/312"
     }
   ],
   "supervisors": [
