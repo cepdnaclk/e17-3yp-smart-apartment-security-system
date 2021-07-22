@@ -40,19 +40,19 @@ Although there are existing solutions for home security like video surveillance 
 Most of the existing security system solutions address the needs of the people who are living in private houses. But people who live in apartments in urban areas have some added needs to be satisfied with a particular security system.
 Therefore, addressing all these issues along with some added unique features we have come up with the idea of a Smart Apartment Security System. Smart Apartment security system is a system that secure entry points, like doors and windows, as well as interior spaces in an apartment from a burglary or a fire by notifying the owners and security officer at the apartment gate whenever a threat has been identified through a mobile application.
 The security system will consist of
-..* Door and window sensors
-..* Smoke detector 
-..* Siren   
-..* Smart door lock   
-..* Control unit   
-..* Mobile application
+- Door and window sensors
+- Smoke detector 
+- Siren   
+- Smart door lock   
+- Control unit   
+- Mobile application
 
 ### Technology used
 Frontend mobile application
-..* Flutter
-..* ReactJS
+- Flutter
+- ReactJS
 Backend
-..* AWS
+- AWS
 
 
 
