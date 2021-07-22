@@ -56,9 +56,11 @@ The security system will consist of
 
 
 
+
 ## Solution Architecture
 
 ![alt text](https://github.com/cepdnaclk/e17-3yp-smart-apartment-security-system/tree/main/docs/images/System Overview.jpg "System Overview")
+
 
 ## Hardware and Software Designs
 
@@ -69,7 +71,7 @@ Detailed designs with many sub-sections
 Testing done on hardware and software, detailed + summarized results
 
 ## Detailed budget
-
+![alt text](https://github.com/cepdnaclk/e17-3yp-smart-apartment-security-system/tree/main/docs/images/budget.jpg "Budget")
 All items and costs
 
 | Item          | Quantity  | Unit Cost  | Total  |
