@@ -51,7 +51,7 @@ The security system will consist of
 Frontend mobile application
 - Flutter
 - ReactJS
-...Backend
+... Backend
 - AWS
 
 
