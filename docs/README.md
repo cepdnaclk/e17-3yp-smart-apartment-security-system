@@ -59,7 +59,7 @@ The security system will consist of
 
 ## Solution Architecture
 
-![alt text](https://github.com/cepdnaclk/e17-3yp-smart-apartment-security-system/tree/main/docs/images/System_Overview.jpg "System Overview")
+![](images/System_Overview.jpg)
 
 
 ## Hardware and Software Designs
