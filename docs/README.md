@@ -58,8 +58,7 @@ The security system will consist of
 
 
 ## Solution Architecture
-
-![](images/System_Overview.jpg width="200" height="200" )
+<img src="images/System_Overview.jpg" width="500">
 
 
 ## Hardware and Software Designs
@@ -71,12 +70,8 @@ Detailed designs with many sub-sections
 Testing done on hardware and software, detailed + summarized results
 
 ## Detailed budget
-![alt text](images/budget.jpg width="200" height="100")
-All items and costs
 
-| Item          | Quantity  | Unit Cost  | Total  |
-| ------------- |:---------:|:----------:|-------:|
-| Sample item   | 5         | 10 LKR     | 50 LKR |
+<img src="images/budget.jpg" width="600">
 
 ## Conclusion
 
