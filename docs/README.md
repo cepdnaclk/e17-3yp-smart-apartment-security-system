@@ -49,10 +49,10 @@ Mobile application
 
 ###Technology used
 Frontend mobile application
-·        Flutter
-·        ReactJS
+1.Flutter
+2.ReactJS
 Backend
-·        AWS
+1.AWS
 
 
 
