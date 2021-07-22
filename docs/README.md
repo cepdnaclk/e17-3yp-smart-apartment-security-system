@@ -48,17 +48,17 @@ The security system will consist of
 - Mobile application
 
 ### Technology used
-Frontend mobile application
+#### Frontend mobile application
 - Flutter
 - ReactJS
-... Backend
+#### Backend
 - AWS
 
 
 
 ## Solution Architecture
 
-High level diagram + description
+![alt text](https://github.com/cepdnaclk/e17-3yp-smart-apartment-security-system/tree/main/docs/images/System Overview.jpg "System Overview")
 
 ## Hardware and Software Designs
 
