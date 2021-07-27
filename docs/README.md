@@ -79,8 +79,8 @@ Our target market is apartment building in urban areas and the potential expansi
 
 ## Links
 
-- [Project Repository](https://github.com/cepdnaclk/{{ page.e17-3yp-smart-apartment-security-system }}){:target="_blank"}
-- [Project Page](https://cepdnaclk.github.io/{{ page.e17-3yp-smart-apartment-security-system}}){:target="_blank"}
+- [Project Repository](https://github.com/cepdnaclk/e17-3yp-smart-apartment-security-system{{ page.e17-3yp-smart-apartment-security-system }}){:target="_blank"}
+- [Project Page](https://cepdnaclk.github.io/e17-3yp-smart-apartment-security-system{{ page.e17-3yp-smart-apartment-security-system}}){:target="_blank"}
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
