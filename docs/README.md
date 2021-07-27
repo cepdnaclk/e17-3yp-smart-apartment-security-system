@@ -4,7 +4,7 @@ permalink: index.html
 
 # Please update this with your repository name and project title
 repository-name: e17-3yp-smart-apartment-security-system
-title: Project Template
+title: Smart Apartment Security System
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
@@ -53,9 +53,6 @@ The security system will consist of
 - ReactJS
 #### Backend
 - AWS
-
-
-
 
 ## Solution Architecture
 <img src="images/System_Overview.jpg" width="500">
