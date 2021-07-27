@@ -14,9 +14,9 @@ title: Smart Apartment Security System
 ---
 
 ## Team
--  E/17/065,Dilhan M.A.K, [email](mailto:e17065@eng.pdn.ac.lk)
--  E/17/212,Morais K.W.G.A.N.D., [email](mailto:e17212@eng.pdn.ac.lk)
--  E/17/312, Sangarasekara S.A.I.U., [email](mailto:e17312@eng.pdn.ac.lk)
+-  E/17/065,Dilhan M.A.K, [e17065@eng.pdn.ac.lk](mailto:e17065@eng.pdn.ac.lk)
+-  E/17/212,Morais K.W.G.A.N.D., [e17212@eng.pdn.ac.lk](mailto:e17212@eng.pdn.ac.lk)
+-  E/17/312, Sangarasekara S.A.I.U., [e17312@eng.pdn.ac.lk](mailto:e17312@eng.pdn.ac.lk)
 
 <!-- Image (photo/drawing of the final hardware) should be here -->
 
@@ -53,6 +53,8 @@ The security system will consist of
 - ReactJS
 #### Backend
 - AWS
+- NodeJs
+- MySQL
 
 ## Solution Architecture
 <img src="images/System_Overview.jpg" width="500">
@@ -72,7 +74,8 @@ Testing done on hardware and software, detailed + summarized results
 
 ## Conclusion
 
-What was achieved, future developments, commercialization plans
+<!-- What was achieved, future developments, commercialization plans -->
+Our target market is apartment building in urban areas and the potential expansions for hotels and hostels
 
 ## Links
 
