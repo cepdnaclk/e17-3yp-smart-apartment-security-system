@@ -4,7 +4,7 @@
             "name": "Kanishka Dilhan",
             "email": "e17065@eng.pdn.ac.lk",
             "eNumber": "E/17/065",
-            "github_profile":"#",
+            "github_profile":"https://github.com/kanishkaDil",
             "linkedin_profile":"#",
             "website": "#"
         },
@@ -12,31 +12,31 @@
             "name": "Dananjaya Morais",
             "email": "e17212@eng.pdn.ac.lk",
             "eNumber": "E/17/212",
-            "github_profile":"#",
-            "linkedin_profile":"#",
+            "github_profile":"https://github.com/1997Nisansala",
+            "linkedin_profile":"https://www.linkedin.com/in/nisansala-dananjaya-04a36a194/",
             "website": "#"
         },
         {
             "name": "Ishini Udara",
             "email": "e17312@eng.pdn.ac.lk",
             "eNumber": "E/17/312",
-            "github_profile":"#",
+            "github_profile":"https://github.com/IshiniUdara",
             "linkedin_profile":"#",
             "website": "#"
         }
     ],
     "supervisors": [
         {
-            "name": "Dr. Supervisor 1",
-            "email": "email@eng.pdn.ac.lk",
-            "linkedin_profile":"#",
+            "name": "Dr.Isuru Nawinne",
+            "email": "isurunawinne@eng.pdn.ac.lk",
+            "linkedin_profile":"https://www.linkedin.com/in/isuru-nawinne-73302833",
             "website": "#",
-            "researchgate_profile":"#"
+            "researchgate_profile":"https://www.researchgate.net/profile/Isuru-Nawinne"
         },
         {
-            "name": "Supervisor 2",
-            "email": "email@eng.pdn.ac.lk",
-            "linkedin_profile":"#",
+            "name": "Dr.Mahanama Wicramasinghe",
+            "email": "mahanamaw@eng.pdn.ac.lk",
+            "linkedin_profile":"https://www.linkedin.com/in/mahanama/",
             "website": "#",
             "researchgate_profile":"#"
         }
