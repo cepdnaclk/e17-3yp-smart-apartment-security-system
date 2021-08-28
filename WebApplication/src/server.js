@@ -7,8 +7,14 @@ import cookieParser from 'cookie-parser';
 import session from "express-session";
 import connectFlash from "connect-flash";
 import passport from "passport";
+const path = require('path');
+
 
 let app = express();
+
+//load assets
+app.use('/css', express.static(path.resolve(__dirname, "public/css")))
+
 
 //use cookie parser
 app.use(cookieParser('secret'));
@@ -40,5 +46,5 @@ app.use(passport.session());
 // init all web routes
 initWebRoutes(app);
 
-let port = process.env.PORT || 8080;
+let port = process.env.PORT || 8081;
 app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));

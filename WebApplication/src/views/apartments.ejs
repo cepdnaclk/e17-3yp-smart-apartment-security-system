@@ -1,0 +1,52 @@
+<!-- Include Header -->
+<%- include('include/_header') %>
+<!-- /Include Header -->
+
+<!-- Main -->
+<main id="site-main">
+    <div class="container">
+        <!-- form handling-->
+        <form action="/" method="POST">
+            <table class="table">
+                <thead class="thread-dark">
+                    <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>House Numbers</th>
+                    <th>Owner Name</th>
+                    <th>Mobile No</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AP0001</td>
+                        <td>Porshia</td>
+                        <td>HN0001, HN002</td>
+                        <td>Mr.Jayawardhana</td>
+                        <td>0756543452</td>
+                        <td>Nawala</td>
+                        <td>
+                            <a href="#" class="btn border-shadow update">
+                                <span class="text-gradient"><i class="fa fa-pencil-alt"></i></span>
+                            </a>
+                            <a href="#" class="btn border-shadow delete">
+                                <span class="text-gradient"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </form>
+        <!-- /form handling-->
+    </div>
+</main>
+<!-- /Main -->
+
+<!-- Include Footer -->
+<%- include('include/_footer') %>
+<!-- /Include Footer -->
