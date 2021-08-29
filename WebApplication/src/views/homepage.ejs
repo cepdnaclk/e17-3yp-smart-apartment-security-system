@@ -1,0 +1,34 @@
+<!-- Include Header -->
+<%- include('include/_header') %>
+<!-- /Include Header -->
+
+<!-- Main -->
+<main id="site-main">
+    <div class="container">
+        <!-- form handling-->
+        <form action="/" method="POST">
+            <table class="table">
+                <thead class="thread-dark">
+                    <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>House ID</th>
+                    <th>Mobile No</th>
+                    <th>Actions</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <%- include('include/_show') %>   
+                </tbody>
+            </table>
+        </form>
+        <!-- /form handling-->
+    </div>
+</main>
+<!-- /Main -->
+
+<!-- Include Footer -->
+<%- include('include/_footer') %>
+<!-- /Include Footer -->
