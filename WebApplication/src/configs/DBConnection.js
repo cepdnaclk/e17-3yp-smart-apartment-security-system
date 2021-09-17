@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 import mysql from "mysql2";
 
 let connection = mysql.createConnection({
