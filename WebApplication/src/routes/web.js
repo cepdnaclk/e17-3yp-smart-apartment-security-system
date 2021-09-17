@@ -22,10 +22,16 @@ let initWebRoutes = (app) => {
         failureFlash: true
     }));
 
+    router.get("/edit/:userId", homePageController.edithomeusers);
+    router.get("/delete/:userId", homePageController.deleteowner);
     router.get("/register", registerController.getPageRegister);
     router.post("/register", auth.validateRegister, registerController.createNewUser);
     router.post("/logout", loginController.postLogOut);
+    router.post("/updateowners", homePageController.updateowners);
     router.get('/apartment', apartments.apartments);
+    router.get('/addapartment', apartments.apartmentregister);
+    router.post("/saveapartment", apartments.saveapartmentdetail);
+
     return app.use("/", router);
 };
 module.exports = initWebRoutes;

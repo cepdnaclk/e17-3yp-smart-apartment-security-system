@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 import express from "express";
 import configViewEngine from "./configs/viewEngine";
 import initWebRoutes from "./routes/web";
@@ -9,12 +9,10 @@ import connectFlash from "connect-flash";
 import passport from "passport";
 const path = require('path');
 
-
 let app = express();
 
 //load assets
 app.use('/css', express.static(path.resolve(__dirname, "public/css")))
-
 
 //use cookie parser
 app.use(cookieParser('secret'));
@@ -28,6 +26,7 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 // 86400000 1 day
     }
 }));
+
 
 // Enable body parser post data
 app.use(bodyParser.json());
