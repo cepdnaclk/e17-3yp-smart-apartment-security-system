@@ -2,15 +2,19 @@ const { json } = require('express');
 const express = require('express');
 const router = express.Router();
 var db = require('./db.js');
+const {registrationSchema}= require('./validation');
 
 
 router.route('/register').post((req,res)=>{
+
+    const validatedResult = registrationSchema.validate(req.body);
+
+    if (validatedResult.error) {
+        res.send(JSON.stringify({success:false,message:validatedResult.error}));  
+    }
+    
     //get params
-    var name = req.body.name;
-    var email = req.body.email;
-    var phone = req.body.phone;
-    var password = req.body.password;
-    var houseid = req.body.houseid;
+    const {name,email,phone,password,houseid} = validatedResult.value;
 
     //create query
     var sqlQuery = "INSERT INTO user(name,email,phone,password,houseid) VALUES (?,?,?,?,?)";
@@ -44,6 +48,7 @@ router.route('/login').post((req,res)=>{
     });
 
 });
+
 
 module.exports = router;
 
