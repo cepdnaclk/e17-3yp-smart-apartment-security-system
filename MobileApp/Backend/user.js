@@ -3,49 +3,92 @@ const express = require('express');
 const router = express.Router();
 var db = require('./db.js');
 const {registrationSchema}= require('./validation');
+const bcrypt = require('bcrypt');
 
 
-router.route('/register').post((req,res)=>{
+router.route('/register').post(async (req,res)=>{
 
-    const validatedResult = registrationSchema.validate(req.body);
 
-    if (validatedResult.error) {
-        res.send(JSON.stringify({success:false,message:validatedResult.error}));  
-    }
-    
-    //get params
-    const {name,email,phone,password,houseid} = validatedResult.value;
-
-    //create query
-    var sqlQuery = "INSERT INTO user(name,email,phone,password,houseid) VALUES (?,?,?,?,?)";
+    var sqlQuery0 = "SELECT email FROM user WHERE email=?";
 
     //call database to insert so add or include database
     // pass params here
-    db.query(sqlQuery, [name,email,phone,password,houseid],function(error,data,fields){
-        if(error){
-            res.send(JSON.stringify({success:false,message:error}));
-        }else{
-            res.send(JSON.stringify({success:true,message:'register'}));
-        }
+    var validmail = true;
+    db.query(sqlQuery0, [req.body.email],async function(error,data,fields){
+    if (error) throw error;
+        
+    if (data.length > 0){
+            validmail=false;
+            res.send(JSON.stringify({success:false,message:'Email already exist!'}));
+    }
+    else{
+            validmail=true;
+            const validatedResult = registrationSchema.validate(req.body);
+
+            if (validatedResult.error) {
+                //console.log('%s',validatedResult.error.details[0].message);
+               
+                res.send(JSON.stringify({success:false,message:validatedResult.error.details[0].message}));  
+                //console.log('%s',res['message']);
+                
+        
+                return;
+            }
+            
+            //get params
+            const {name,email,phone,password,houseid} = validatedResult.value;
+            var enc = password
+            const salt = await bcrypt.genSalt(8);
+            enc = await bcrypt.hash(enc,salt);
+        
+            //create query
+            var sqlQuery = "INSERT INTO user(name,email,phone,password,houseid) VALUES (?,?,?,?,?)";
+        
+            //call database to insert so add or include database
+            // pass params here
+            db.query(sqlQuery, [name,email,phone,enc,houseid],function(error,data,fields){
+                if(error){
+                    res.send(JSON.stringify({success:false,message:error}));
+                }else{
+                    res.send(JSON.stringify({success:true,message:'register'}));
+                }
+            });
+            
+    }
+
     });
+
+
+
 });
 
-router.route('/login').post((req,res)=>{
+router.route('/login').post(async(req,res)=>{
     var email = req.body.email;
     var password = req.body.password;
 
-    var sql = "SELECT * FROM user WHERE email=? AND password=?";
+    var sql = "SELECT * FROM user WHERE email=?";
 
-    db.query(sql, [email,password],function(err,data,fields){
+    db.query(sql, [email],async function(err,data,fields){
+        //console.log(data);
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
-        }else{
-            if(data.length > 0)
-                res.send(JSON.stringify({success:true,user:data}));
-            else
-            res.send(JSON.stringify({success:false,message:"Empty data"})); 
         }
-    });
+        else{
+            if (data.length > 0){
+                //res.send(JSON.stringify({success:true,user:data}));
+                const validPassword = await bcrypt.compare(password, data[0].password);
+                if(validPassword){
+                    res.send(JSON.stringify({success:true,user:data}));
+
+                }else{
+                    res.send(JSON.stringify({success:false,message:"Incorrect password"}));
+
+                }
+            }else{
+                res.send(JSON.stringify({success:false,message:"Not a registered Email"})); 
+            }
+        }
+    });  
 
 });
 

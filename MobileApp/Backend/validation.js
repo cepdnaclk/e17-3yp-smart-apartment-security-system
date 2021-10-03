@@ -4,11 +4,12 @@ const registrationSchema = Joi.object({
     name: Joi.string()
         .alphanum()
         .min(3)
-        .max(30)
+        .max(50)
         .required(),
 
     email: Joi.string()
-        .email(),
+        .email()
+        .required(),
 
     phone: Joi.string()
         .alphanum()
@@ -17,19 +18,18 @@ const registrationSchema = Joi.object({
         .required(),
 
     password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+        .required(),
 
-    confirmpassword: Joi.ref('password'),
+    //confirmpassword: Joi.ref('password'),
 /*
     access_token: [
         Joi.string(),
         Joi.number()
     ],
 */
-    houseid: Joi.number()
-        .integer()
-        .min(1900)
-        .max(2013)
+    houseid: Joi.string()
+        .required()
 
     
 })
