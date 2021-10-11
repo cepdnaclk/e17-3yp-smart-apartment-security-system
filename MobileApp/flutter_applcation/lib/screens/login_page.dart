@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_applcation/rest/rest_api.dart';
-import 'package:flutter_applcation/screens/home_page.dart';
 import 'package:flutter_applcation/screens/register_page.dart';
 import 'package:flutter_applcation/widgets/form_fields_widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'homenavdrawer.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -20,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   late SharedPreferences _sharedPreferences;
+  late String value;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             gradient: new LinearGradient(
-                colors: [Colors.grey, Colors.black87],
+                colors: [Colors.blue.shade600, Colors.black87],
                 begin: const FractionalOffset(0.0, 1.0),
                 end: const FractionalOffset(0.0, 1.0),
                 stops: [0.0, 1.0],
@@ -45,10 +48,17 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: 10,
+                  ),
                   Center(
                     child: Text(
                       "SAFENET",
-                      style: TextStyle(color: Colors.white, fontSize: 30),
+                      style: GoogleFonts.sarpanch(
+                          textStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 50,
+                      )),
                     ),
                   ),
                   SizedBox(
@@ -57,22 +67,22 @@ class _LoginPageState extends State<LoginPage> {
                   Center(
                     child: Text(
                       "Smart Apartment Security System",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      style: GoogleFonts.sarpanch(
+                          textStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 21,
+                      )),
                     ),
                   )
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
             Container(
               alignment: Alignment.center,
-              child: Image.asset(
-                "assets/images/logo.png",
-                fit: BoxFit.cover,
-                width: 250,
-                height: 250,
+              child: Icon(
+                Icons.add_moderator,
+                size: 200,
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -162,10 +172,11 @@ class _LoginPageState extends State<LoginPage> {
     if (res['success']) {
       String userEmail = res['user'][0]['email'];
       int userId = res['user'][0]['id'];
+      value = userEmail;
       _sharedPreferences.setInt('userid', userId);
       _sharedPreferences.setString('usermail', userEmail);
 
-      Route route = MaterialPageRoute(builder: (_) => HomePage());
+      Route route = MaterialPageRoute(builder: (_) => DrawerPage(value: value));
       Navigator.pushReplacement(context, route);
     } else {
       Fluttertoast.showToast(

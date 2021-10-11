@@ -31,6 +31,9 @@ dependencies:
   http : any
   shared_preferences: any
   fluttertoast: any
+  flutter_switch: ^0.3.2
+  google_fonts: ^2.1.0
+  
 
 dev_dependencies:
   flutter_test:
