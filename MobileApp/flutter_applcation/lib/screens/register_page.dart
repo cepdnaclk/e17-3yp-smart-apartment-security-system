@@ -29,7 +29,7 @@ class RegisterPageState extends State<RegisterPage> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             gradient: new LinearGradient(
-                colors: [Colors.grey, Colors.black87],
+                colors: [Colors.blue, Colors.black87],
                 begin: const FractionalOffset(0.0, 1.0),
                 end: const FractionalOffset(0.0, 1.0),
                 stops: [0.0, 1.0],
@@ -157,14 +157,14 @@ class RegisterPageState extends State<RegisterPage> {
             text: 'SAFE',
             style: TextStyle(
               fontSize: 30,
-              color: Colors.blue,
+              color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
             children: [
               TextSpan(
                   text: 'NET',
                   style: TextStyle(
-                      color: Colors.black87,
+                      color: Colors.blueAccent,
                       fontWeight: FontWeight.w700,
                       fontSize: 30)),
             ]));
