@@ -1,3 +1,4 @@
+import 'package:email_auth/email_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_applcation/rest/rest_api.dart';
@@ -15,11 +16,42 @@ class RegisterPage extends StatefulWidget {
 class RegisterPageState extends State<RegisterPage> {
   final TextEditingController username = TextEditingController();
   final TextEditingController email = TextEditingController();
+  final TextEditingController otp = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController confirmpassword = TextEditingController();
   final TextEditingController phone = TextEditingController();
   final TextEditingController houseid = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  late EmailAuth emailAuth;
+  var otpval;
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the package
+    emailAuth = EmailAuth(
+      sessionName: "Safenet Email verification",
+    );
+  }
+
+  void verify() {
+    // ignore: avoid_print
+    otpval = (emailAuth.validateOtp(
+        recipientMail: email.value.text, userOtp: otp.value.text));
+    print(otpval);
+    if (otpval) {
+      Fluttertoast.showToast(msg: 'Email Verified', textColor: Colors.red);
+    } else {
+      Fluttertoast.showToast(msg: 'Email Not Verified', textColor: Colors.red);
+    }
+  }
+
+  void sendOtp() async {
+    bool result =
+        await emailAuth.sendOtp(recipientMail: email.value.text, otpLength: 5);
+    if (result) {}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +99,6 @@ class RegisterPageState extends State<RegisterPage> {
                               obsecure: false,
                             ),
                             FormFields(
-                              controller: email,
-                              data: Icons.email,
-                              txtHint: 'Email',
-                              obsecure: false,
-                            ),
-                            FormFields(
                               controller: phone,
                               data: Icons.phone,
                               txtHint: 'Mobile No',
@@ -96,6 +122,64 @@ class RegisterPageState extends State<RegisterPage> {
                               txtHint: 'Confirm Password',
                               obsecure: true,
                             ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            TextField(
+                              controller: email,
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelStyle: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  hintText: "Enter Email",
+                                  hintStyle: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  labelText: "Email",
+                                  suffixIcon: TextButton(
+                                    child: const Text(
+                                      'Send OTP',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    onPressed: () => sendOtp(),
+                                  )),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            TextField(
+                              controller: otp,
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelStyle: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  hintText: "Enter OTP",
+                                  hintStyle: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  labelText: "OTP",
+                                  suffixIcon: TextButton(
+                                    child: const Text(
+                                      'Verify Email',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    onPressed: () => verify(),
+                                  )),
+                            ),
                           ],
                         )),
                     SizedBox(
@@ -112,7 +196,8 @@ class RegisterPageState extends State<RegisterPage> {
                                 phone.text.isNotEmpty &&
                                 houseid.text.isNotEmpty &&
                                 confirmpassword.text.isNotEmpty &&
-                                email.text.isNotEmpty) {
+                                email.text.isNotEmpty &&
+                                otpval) {
                               if (password.text == confirmpassword.text) {
                                 doRegister(username.text, email.text,
                                     password.text, phone.text, houseid.text);
@@ -179,7 +264,7 @@ class RegisterPageState extends State<RegisterPage> {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => LoginPage()));
     } else {
-        Fluttertoast.showToast(msg: res['message'], textColor: Colors.red);
+      Fluttertoast.showToast(msg: 'Try again', textColor: Colors.red);
     }
   }
 
