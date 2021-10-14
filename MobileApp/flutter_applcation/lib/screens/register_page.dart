@@ -264,7 +264,7 @@ class RegisterPageState extends State<RegisterPage> {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => LoginPage()));
     } else {
-      Fluttertoast.showToast(msg: 'Try again', textColor: Colors.red);
+      Fluttertoast.showToast(msg: res['message'], textColor: Colors.red);
     }
   }
 
