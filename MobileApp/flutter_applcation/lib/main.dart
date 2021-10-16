@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_applcation/screens/homeSO.dart';
 import 'package:flutter_applcation/screens/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      //home: sohome(value: ''),
       home: MyHomePage(title: 'SAFENET'),
     );
   }

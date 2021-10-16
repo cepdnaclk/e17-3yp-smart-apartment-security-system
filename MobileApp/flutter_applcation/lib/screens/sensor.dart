@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_applcation/screens/flamesensor.dart';
 import 'package:flutter_applcation/screens/homenavdrawer.dart';
 import 'package:flutter_applcation/screens/motionsensor.dart';
 import 'package:flutter_applcation/screens/windowsensors.dart';
@@ -48,7 +49,13 @@ class _sensorsState extends State<sensors> {
             title: Text('Flame Sensor'),
             subtitle: Text('Fire Detecting sensor'),
             //trailing: Icon(Icons.menu),
-            onTap: () {},
+            onTap: () {
+              Route route = MaterialPageRoute(
+                  builder: (_) => flamesensor(
+                        value: value,
+                      ));
+              Navigator.pushReplacement(context, route);
+            },
             onLongPress: () {},
           ),
           Divider(),

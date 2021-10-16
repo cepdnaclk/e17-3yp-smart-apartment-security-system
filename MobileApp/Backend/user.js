@@ -4,14 +4,11 @@ const router = express.Router();
 var db = require('./db.js');
 const {registrationSchema}= require('./validation');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const config = require("./auth.config");
-const checkAuth = require('./middleware/check-auth');
 
 router.route('/register').post(async (req,res)=>{
 
 
-    var sqlQuery0 = "SELECT email FROM user WHERE email=?";
+    var sqlQuery0 = "SELECT email FROM user4 WHERE email=?";
 
     //call database to insert so add or include database
     // pass params here
@@ -38,17 +35,17 @@ router.route('/register').post(async (req,res)=>{
             }
             
             //get params
-            const {name,email,phone,password,houseid} = validatedResult.value;
+            const {name,email,phone,password,houseid, apartmentid} = validatedResult.value;
             var enc = password
             const salt = await bcrypt.genSalt(8);
             enc = await bcrypt.hash(enc,salt);
         
             //create query
-            var sqlQuery = "INSERT INTO user(name,email,phone,password,houseid) VALUES (?,?,?,?,?)";
+            var sqlQuery = "INSERT INTO user4(name,email,phone,password,houseid,apartmentid) VALUES (?,?,?,?,?,?)";
         
             //call database to insert so add or include database
             // pass params here
-            db.query(sqlQuery, [name,email,phone,enc,houseid],function(error,data,fields){
+            db.query(sqlQuery, [name,email,phone,enc,houseid,apartmentid],function(error,data,fields){
                 if(error){
                     res.send(JSON.stringify({success:false,message:error}));
                 }else{
@@ -94,9 +91,28 @@ router.route('/login').post(async(req,res)=>{
 
 });
 
-router.route('/getdetails/:email',checkAuth).get((req,res)=>{
+router.route('/loginSO').post((req,res)=>{
+    var email = req.body.email;
+    var password = req.body.password;
+
+    var sql = "SELECT * FROM securityofficer WHERE email=? AND password=?";
+
+    db.query(sql, [email,password],function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+                res.send(JSON.stringify({success:true,user:data}));
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    });
+
+}); 
+
+router.route('/getdetails/:email').get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from user where email = '${id}'`;
+    let sql = `Select * from user4 where email = '${id}'`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -109,7 +125,67 @@ router.route('/getdetails/:email',checkAuth).get((req,res)=>{
     })
 });
 
-router.route('/updatemode/:email',checkAuth).post((req,res)=>{
+router.route('/sogetdetails/:email').get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select * from securityofficer where email = '${id}'`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+router.route('/getallsensordetails/:email').get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select * from se where apartmentid = (SELECT apartmentid FROM securityofficer WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+router.route('/getso/:email').get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select phone from securityofficer where apartmentid = (SELECT apartmentid FROM user WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data[0]);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+router.route('/getalluserdetails/:email').get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select name,phone,houseid from user4 where apartmentid = (SELECT apartmentid FROM securityofficer WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+router.route('/updatemode/:email').post((req,res)=>{
     var id = req.params.email;
     var mode = req.body.mode;
     let sql = `UPDATE sensor SET mode='${mode}' WHERE email = '${id}'`;
@@ -122,9 +198,10 @@ router.route('/updatemode/:email',checkAuth).post((req,res)=>{
     })
 });
 
-router.route('/getsensordetails/:email',checkAuth).get((req,res)=>{
+router.route('/getsensordetails/:email').get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from sensor where email = '${id}' and type = "window"`;
+    let sql = `Select * from se where type = "window sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
+    //let sql = `Select * from sensor where email = '${id}' and type = "window"`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -138,9 +215,9 @@ router.route('/getsensordetails/:email',checkAuth).get((req,res)=>{
 });
 
 
-router.route('/getmotionsensordetails/:email',checkAuth).get((req,res)=>{
+router.route('/getmotionsensordetails/:email').get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from sensor where email = '${id}' and type = "motion"`;
+    let sql = `Select * from se where type = "motion sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -153,7 +230,23 @@ router.route('/getmotionsensordetails/:email',checkAuth).get((req,res)=>{
     })
 });
 
-router.route('/getmessage/:id',checkAuth).post((req,res)=>{
+router.route('/getflamesensordetails/:email').get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select * from se where type = "flame sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data[0]);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+
+router.route('/getmessage/:id').post((req,res)=>{
     var id = req.params.id;
     let sql = `Select * from message where id = '${id}'`;
     db.query(sql,function(err,data,fields){
@@ -168,7 +261,7 @@ router.route('/getmessage/:id',checkAuth).post((req,res)=>{
     })
 });
 
-router.route('/updateuserdetails/:email',checkAuth).post((req,res)=>{
+router.route('/updateuserdetails/:email').post((req,res)=>{
     var id = req.params.email;
     var name = req.body.name;
     var phone = req.body.phone;

@@ -29,6 +29,9 @@ const registrationSchema = Joi.object({
     ],
 */
     houseid: Joi.string()
+        .required(),
+
+    apartmentid: Joi.string()
         .required()
 
     

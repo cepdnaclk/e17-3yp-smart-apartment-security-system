@@ -1,11 +1,16 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_applcation/screens/contacts.dart';
+import 'package:flutter_applcation/screens/sensor.dart';
+import 'package:flutter_applcation/screens/userdetail.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
 import 'homenavdrawer.dart';
+import 'login_page.dart';
 
 class SwitchScreen extends StatefulWidget {
   late String value;
@@ -83,12 +88,12 @@ class _SwitchScreenState extends State<SwitchScreen> {
           toolbarHeight: 140,
         ),
         backgroundColor: Colors.white54,
-        body: SingleChildScrollView(
-          child: Container(
+        body: Column(children: [
+          Container(
             decoration: BoxDecoration(
                 color: Colors.white70,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            margin: EdgeInsets.all(60),
+            margin: EdgeInsets.all(50),
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
@@ -110,7 +115,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                   value: status7,
                   borderRadius: 50.0,
                   padding: 3.0,
-                  activeToggleColor: Color(0xFF6E40C9),
+                  activeToggleColor: Colors.green.shade700,
                   inactiveToggleColor: Color(0xFF2F363D),
                   activeSwitchBorder: Border.all(
                     color: Colors.greenAccent,
@@ -149,12 +154,138 @@ class _SwitchScreenState extends State<SwitchScreen> {
                     });
                   },
                 ),
+                SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: FlatButton(
+                            onPressed: () {
+                              Route route = MaterialPageRoute(
+                                  builder: (_) => UserDetails(
+                                        value: value,
+                                      ));
+                              Navigator.pushReplacement(context, route);
+                            },
+                            color: _scaffoldBgcolor,
+                            padding: EdgeInsets.all(10.0),
+                            child: Row(
+                              // Replace with a Row for horizontal icon + text
+                              children: const <Widget>[
+                                Icon(Icons.person),
+                                Text("User Details")
+                              ],
+                            ))),
+                    const SizedBox(
+                      width: 25,
+                    ),
+                    Expanded(
+                        child: FlatButton(
+                            onPressed: () {
+                              Route route = MaterialPageRoute(
+                                  builder: (_) => sensors(
+                                        value: value,
+                                      ));
+                              Navigator.pushReplacement(context, route);
+                            },
+                            color: _scaffoldBgcolor,
+                            padding: EdgeInsets.all(10.0),
+                            child: Row(
+                              // Replace with a Row for horizontal icon + text
+                              children: const <Widget>[
+                                Icon(Icons.sensor_door_rounded),
+                                Text("Sensors")
+                              ],
+                            ))),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: FlatButton(
+                            onPressed: () => {},
+                            color: _scaffoldBgcolor,
+                            padding: EdgeInsets.all(10.0),
+                            child: Row(
+                              // Replace with a Row for horizontal icon + text
+                              children: const <Widget>[
+                                Icon(Icons.layers_outlined),
+                                Text("Layout")
+                              ],
+                            ))),
+                    const SizedBox(
+                      width: 25,
+                    ),
+                    Expanded(
+                        child: FlatButton(
+                            onPressed: () => {},
+                            color: _scaffoldBgcolor,
+                            padding: EdgeInsets.all(10.0),
+                            child: Row(
+                              // Replace with a Row for horizontal icon + text
+                              children: const <Widget>[
+                                Icon(Icons.notification_add),
+                                Text("Notification")
+                              ],
+                            ))),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: FlatButton(
+                            onPressed: () {
+                              Route route = MaterialPageRoute(
+                                  builder: (_) => contacts(
+                                        value: value,
+                                      ));
+                              Navigator.pushReplacement(context, route);
+                            },
+                            color: _scaffoldBgcolor,
+                            padding: EdgeInsets.all(10.0),
+                            child: Row(
+                              // Replace with a Row for horizontal icon + text
+                              children: const <Widget>[
+                                Icon(Icons.phone_android_rounded),
+                                Text("Contacts")
+                              ],
+                            ))),
+                    const SizedBox(
+                      width: 25,
+                    ),
+                    Expanded(
+                        child: FlatButton(
+                            onPressed: () => {
+                                  SchedulerBinding.instance!
+                                      .addPostFrameCallback((_) {
+                                    Navigator.push(
+                                        context,
+                                        new MaterialPageRoute(
+                                            builder: (context) => LoginPage()));
+                                  })
+                                },
+                            color: _scaffoldBgcolor,
+                            padding: EdgeInsets.all(10.0),
+                            child: Row(
+                              // Replace with a Row for horizontal icon + text
+                              children: const <Widget>[
+                                Icon(Icons.logout),
+                                Text("Logout")
+                              ],
+                            ))),
+                  ],
+                ),
               ],
-
-              //----------------------------------------------------------------------------
             ),
           ),
-        ),
+        ]),
       ),
     );
   }
