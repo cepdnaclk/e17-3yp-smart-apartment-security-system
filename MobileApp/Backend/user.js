@@ -4,6 +4,9 @@ const router = express.Router();
 var db = require('./db.js');
 const {registrationSchema}= require('./validation');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const config = require("./auth.config");
+const checkAuth = require('./middleware/check-auth');
 
 router.route('/register').post(async (req,res)=>{
 
@@ -91,7 +94,7 @@ router.route('/login').post(async(req,res)=>{
 
 });
 
-router.route('/getdetails/:email').get((req,res)=>{
+router.route('/getdetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from user where email = '${id}'`;
     db.query(sql,function(err,data,fields){
@@ -106,7 +109,7 @@ router.route('/getdetails/:email').get((req,res)=>{
     })
 });
 
-router.route('/updatemode/:email').post((req,res)=>{
+router.route('/updatemode/:email',checkAuth).post((req,res)=>{
     var id = req.params.email;
     var mode = req.body.mode;
     let sql = `UPDATE sensor SET mode='${mode}' WHERE email = '${id}'`;
@@ -119,7 +122,7 @@ router.route('/updatemode/:email').post((req,res)=>{
     })
 });
 
-router.route('/getsensordetails/:email').get((req,res)=>{
+router.route('/getsensordetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from sensor where email = '${id}' and type = "window"`;
     db.query(sql,function(err,data,fields){
@@ -135,7 +138,7 @@ router.route('/getsensordetails/:email').get((req,res)=>{
 });
 
 
-router.route('/getmotionsensordetails/:email').get((req,res)=>{
+router.route('/getmotionsensordetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from sensor where email = '${id}' and type = "motion"`;
     db.query(sql,function(err,data,fields){
@@ -150,7 +153,7 @@ router.route('/getmotionsensordetails/:email').get((req,res)=>{
     })
 });
 
-router.route('/getmessage/:id').post((req,res)=>{
+router.route('/getmessage/:id',checkAuth).post((req,res)=>{
     var id = req.params.id;
     let sql = `Select * from message where id = '${id}'`;
     db.query(sql,function(err,data,fields){
@@ -165,7 +168,7 @@ router.route('/getmessage/:id').post((req,res)=>{
     })
 });
 
-router.route('/updateuserdetails/:email').post((req,res)=>{
+router.route('/updateuserdetails/:email',checkAuth).post((req,res)=>{
     var id = req.params.email;
     var name = req.body.name;
     var phone = req.body.phone;
