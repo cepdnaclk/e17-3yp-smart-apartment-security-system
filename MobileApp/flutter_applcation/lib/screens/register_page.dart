@@ -21,6 +21,7 @@ class RegisterPageState extends State<RegisterPage> {
   final TextEditingController confirmpassword = TextEditingController();
   final TextEditingController phone = TextEditingController();
   final TextEditingController houseid = TextEditingController();
+  final TextEditingController apartmentid = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   late EmailAuth emailAuth;
@@ -50,7 +51,12 @@ class RegisterPageState extends State<RegisterPage> {
   void sendOtp() async {
     bool result =
         await emailAuth.sendOtp(recipientMail: email.value.text, otpLength: 5);
-    if (result) {}
+    if (result) {
+      Fluttertoast.showToast(
+          msg: 'OTP sent successfully', textColor: Colors.red);
+    } else {
+      Fluttertoast.showToast(msg: "OTP could't sent", textColor: Colors.red);
+    }
   }
 
   @override
@@ -111,6 +117,12 @@ class RegisterPageState extends State<RegisterPage> {
                               obsecure: false,
                             ),
                             FormFields(
+                              controller: apartmentid,
+                              data: Icons.apartment,
+                              txtHint: 'Apartment ID',
+                              obsecure: false,
+                            ),
+                            FormFields(
                               controller: password,
                               data: Icons.lock,
                               txtHint: 'Password',
@@ -128,24 +140,27 @@ class RegisterPageState extends State<RegisterPage> {
                             TextField(
                               controller: email,
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  prefixIcon: Icon(Icons.email_outlined),
                                   border: OutlineInputBorder(),
                                   labelStyle: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                   hintText: "Enter Email",
                                   hintStyle: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                   labelText: "Email",
                                   suffixIcon: TextButton(
                                     child: const Text(
                                       'Send OTP',
                                       style: TextStyle(
-                                        color: Colors.white,
+                                        color: Colors.black,
                                       ),
                                     ),
                                     onPressed: () => sendOtp(),
@@ -157,24 +172,28 @@ class RegisterPageState extends State<RegisterPage> {
                             TextField(
                               controller: otp,
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  prefixIcon:
+                                      Icon(Icons.notification_add_outlined),
                                   border: OutlineInputBorder(),
                                   labelStyle: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                   hintText: "Enter OTP",
                                   hintStyle: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                   labelText: "OTP",
                                   suffixIcon: TextButton(
                                     child: const Text(
                                       'Verify Email',
                                       style: TextStyle(
-                                        color: Colors.white,
+                                        color: Colors.black,
                                       ),
                                     ),
                                     onPressed: () => verify(),
@@ -197,10 +216,16 @@ class RegisterPageState extends State<RegisterPage> {
                                 houseid.text.isNotEmpty &&
                                 confirmpassword.text.isNotEmpty &&
                                 email.text.isNotEmpty &&
+                                apartmentid.text.isNotEmpty &&
                                 otpval) {
                               if (password.text == confirmpassword.text) {
-                                doRegister(username.text, email.text,
-                                    password.text, phone.text, houseid.text);
+                                doRegister(
+                                    username.text,
+                                    email.text,
+                                    password.text,
+                                    phone.text,
+                                    houseid.text,
+                                    apartmentid.text);
                               } else {
                                 Fluttertoast.showToast(
                                     msg: 'Recheck the passwords',
@@ -256,8 +281,9 @@ class RegisterPageState extends State<RegisterPage> {
   }
 
   doRegister(String username, String email, String password, String phoneno,
-      String houseid) async {
-    var res = await userRegister(username, email, password, phoneno, houseid);
+      String houseid, String apartmentid) async {
+    var res = await userRegister(
+        username, email, password, phoneno, houseid, apartmentid);
     if (res['success']) {
       Fluttertoast.showToast(
           msg: 'Successfully Registered', textColor: Colors.red);

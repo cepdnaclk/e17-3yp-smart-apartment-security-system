@@ -1,23 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_applcation/rest/rest_api.dart';
-import 'package:flutter_applcation/screens/LoginSO.dart';
-import 'package:flutter_applcation/screens/register_page.dart';
-import 'package:flutter_applcation/widgets/form_fields_widgets.dart';
+import 'package:flutter_applcation/screens/homeSO.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:email_auth/email_auth.dart';
 import 'homenavdrawer.dart';
+import 'login_page.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPageSO extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _LoginPageState();
+    return _LoginPageSOState();
   }
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageSOState extends State<LoginPageSO> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -62,6 +61,20 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.navigate_before),
+              onPressed: () {
+                Route route = MaterialPageRoute(builder: (_) => LoginPage());
+                Navigator.pushReplacement(context, route);
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
+      ),
       resizeToAvoidBottomInset: true,
       body: Material(
           child: SingleChildScrollView(
@@ -101,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Center(
                     child: Text(
-                      "User Login",
+                      "Login of Security Officer",
                       style: GoogleFonts.sarpanch(
                           textStyle: TextStyle(
                         color: Colors.white,
@@ -116,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
               alignment: Alignment.center,
               child: Icon(
                 Icons.add_moderator,
-                size: 200,
+                size: 150,
                 color: Colors.white,
               ),
             ),
@@ -243,48 +256,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
-                SizedBox(
-                  width: 15,
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (_) => LoginPageSO());
-                    Navigator.pushReplacement(context, route);
-                  },
-                  color: Colors.blue,
-                  child: Text(
-                    'Security Officer >>',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account ",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Text(
-                    "Register Here",
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18),
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       ))),
@@ -293,7 +266,7 @@ class _LoginPageState extends State<LoginPage> {
 
   doLogin(String email, String password) async {
     _sharedPreferences = await SharedPreferences.getInstance();
-    var res = await userLogin(email.trim(), password.trim());
+    var res = await userLoginSO(email.trim(), password.trim());
     if (res['success']) {
       print(res['success']);
       String userEmail = res['user'][0]['email'];
@@ -302,7 +275,7 @@ class _LoginPageState extends State<LoginPage> {
       _sharedPreferences.setInt('userid', userId);
       _sharedPreferences.setString('usermail', userEmail);
 
-      Route route = MaterialPageRoute(builder: (_) => DrawerPage(value: value));
+      Route route = MaterialPageRoute(builder: (_) => sohome(value: value));
       Navigator.pushReplacement(context, route);
     } else {
       Fluttertoast.showToast(
