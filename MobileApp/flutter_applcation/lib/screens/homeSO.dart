@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_applcation/screens/homenavdrawer.dart';
 import 'package:flutter_applcation/screens/login_page.dart';
-import 'package:flutter_applcation/screens/motionsensor.dart';
 import 'package:flutter_applcation/screens/soSensors.dart';
 import 'package:flutter_applcation/screens/soUsers.dart';
+import 'package:flutter_applcation/screens/sofpsensor.dart';
 
 class sohome extends StatefulWidget {
   late String value;
@@ -21,18 +20,6 @@ class _sohomeState extends State<sohome> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Portal of Security Officer"),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.navigate_before),
-              onPressed: () {
-                Route route = MaterialPageRoute(builder: (_) => LoginPage());
-                Navigator.pushReplacement(context, route);
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
       ),
       body: ListView(
         scrollDirection: Axis.vertical,
@@ -65,11 +52,11 @@ class _sohomeState extends State<sohome> {
           ListTile(
             leading: Icon(Icons.sensor_door),
             title: Text('Front Door Sensors'),
-            subtitle: Text('Activation Details about front doors'),
+            subtitle: Text('The frontdoors that Security Officer can access'),
             // trailing: Icon(Icons.menu),
             onTap: () {
               Route route = MaterialPageRoute(
-                  builder: (_) => sohome(
+                  builder: (_) => sofpsensor(
                         value: value,
                       ));
               Navigator.pushReplacement(context, route);

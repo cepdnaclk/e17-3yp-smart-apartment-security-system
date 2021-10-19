@@ -6,7 +6,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:email_auth/email_auth.dart';
-import 'homenavdrawer.dart';
 import 'login_page.dart';
 
 class LoginPageSO extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/homeSO.dart';
 import 'package:flutter_applcation/screens/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,6 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     isLogin();
+    initPlatformState();
+  }
+
+  static const String oneSignalAppId = "b146c005-8195-4098-ac19-0e79fd7b7ae2";
+
+  Future<void> initPlatformState() async {
+    OneSignal.shared.setAppId(oneSignalAppId);
   }
 
   void isLogin() async {

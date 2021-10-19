@@ -3,13 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_applcation/screens/contacts.dart';
+import 'package:flutter_applcation/screens/notification.dart';
 import 'package:flutter_applcation/screens/sensor.dart';
 import 'package:flutter_applcation/screens/userdetail.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-
-import 'homenavdrawer.dart';
 import 'login_page.dart';
 
 class SwitchScreen extends StatefulWidget {
@@ -75,11 +74,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
               return IconButton(
                 icon: const Icon(Icons.health_and_safety_sharp),
                 iconSize: 120,
-                onPressed: () {
-                  Route route = MaterialPageRoute(
-                      builder: (_) => DrawerPage(value: value));
-                  Navigator.pushReplacement(context, route);
-                },
+                onPressed: () {},
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               );
             },
@@ -222,7 +217,11 @@ class _SwitchScreenState extends State<SwitchScreen> {
                     ),
                     Expanded(
                         child: FlatButton(
-                            onPressed: () => {},
+                            onPressed: () {
+                              Route route = MaterialPageRoute(
+                                  builder: (_) => notification());
+                              Navigator.pushReplacement(context, route);
+                            },
                             color: _scaffoldBgcolor,
                             padding: EdgeInsets.all(10.0),
                             child: Row(

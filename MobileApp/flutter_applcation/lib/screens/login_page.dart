@@ -2,13 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_applcation/rest/rest_api.dart';
 import 'package:flutter_applcation/screens/LoginSO.dart';
+import 'package:flutter_applcation/screens/Modes.dart';
 import 'package:flutter_applcation/screens/register_page.dart';
-import 'package:flutter_applcation/widgets/form_fields_widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:email_auth/email_auth.dart';
-import 'homenavdrawer.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -302,7 +301,8 @@ class _LoginPageState extends State<LoginPage> {
       _sharedPreferences.setInt('userid', userId);
       _sharedPreferences.setString('usermail', userEmail);
 
-      Route route = MaterialPageRoute(builder: (_) => DrawerPage(value: value));
+      Route route =
+          MaterialPageRoute(builder: (_) => SwitchScreen(value: value));
       Navigator.pushReplacement(context, route);
     } else {
       Fluttertoast.showToast(
