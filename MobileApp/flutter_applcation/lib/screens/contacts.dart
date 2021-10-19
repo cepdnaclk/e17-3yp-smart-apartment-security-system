@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'package:flutter_applcation/screens/Modes.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/homenavdrawer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Album {
@@ -73,8 +73,8 @@ class _contactsState extends State<contacts> {
             return IconButton(
               icon: const Icon(Icons.navigate_before),
               onPressed: () {
-                Route route =
-                    MaterialPageRoute(builder: (_) => DrawerPage(value: value));
+                Route route = MaterialPageRoute(
+                    builder: (_) => SwitchScreen(value: value));
                 Navigator.pushReplacement(context, route);
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,

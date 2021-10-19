@@ -1,8 +1,13 @@
+import 'dart:convert';
+import 'package:flutter_applcation/screens/Modes.dart';
+import 'package:flutter_applcation/screens/fpsensor.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_applcation/screens/flamesensor.dart';
-import 'package:flutter_applcation/screens/homenavdrawer.dart';
 import 'package:flutter_applcation/screens/motionsensor.dart';
 import 'package:flutter_applcation/screens/windowsensors.dart';
+import 'package:flutter_switch/flutter_switch.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class sensors extends StatefulWidget {
   late String value;
@@ -13,7 +18,60 @@ class sensors extends StatefulWidget {
 
 class _sensorsState extends State<sensors> {
   String value;
+  bool status1 = true;
+  bool status2 = false;
+  String statuschange = 'active';
+  String statuschange2 = 'false';
   _sensorsState(this.value);
+
+  Future updatemode(String status) async {
+    final response = await http.post(
+        Uri.parse("http://10.0.2.2:3000/user/updatemodesensor/" + value),
+        headers: {
+          "Accept": "Application/json"
+        },
+        body: {
+          'status': status,
+        });
+
+    var decodeData = jsonDecode(response.body);
+    return decodeData;
+  }
+
+  Future updateaccessSO(String status) async {
+    final response = await http.post(
+        Uri.parse("http://10.0.2.2:3000/user/updatesoaccess/" + value),
+        headers: {
+          "Accept": "Application/json"
+        },
+        body: {
+          'status': status,
+        });
+
+    var decodeData = jsonDecode(response.body);
+    return decodeData;
+  }
+
+  doupdate(String status) async {
+    var res = await updatemode(status);
+    if (res['success']) {
+      Fluttertoast.showToast(
+          msg: 'Successfully updated', textColor: Colors.red);
+    } else {
+      Fluttertoast.showToast(msg: 'Try again', textColor: Colors.red);
+    }
+  }
+
+  doupdate2(String status) async {
+    var res = await updateaccessSO(status);
+    if (res['success']) {
+      Fluttertoast.showToast(
+          msg: 'Successfully updated', textColor: Colors.red);
+    } else {
+      Fluttertoast.showToast(msg: 'Try again', textColor: Colors.red);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +82,8 @@ class _sensorsState extends State<sensors> {
             return IconButton(
               icon: const Icon(Icons.navigate_before),
               onPressed: () {
-                Route route =
-                    MaterialPageRoute(builder: (_) => DrawerPage(value: value));
+                Route route = MaterialPageRoute(
+                    builder: (_) => SwitchScreen(value: value));
                 Navigator.pushReplacement(context, route);
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
@@ -41,7 +99,13 @@ class _sensorsState extends State<sensors> {
             title: Text('Front Door'),
             subtitle: Text('Details of Front Door'),
             //trailing: Icon(Icons.menu),
-            onTap: () {},
+            onTap: () {
+              Route route = MaterialPageRoute(
+                  builder: (_) => fpSensors(
+                        value: value,
+                      ));
+              Navigator.pushReplacement(context, route);
+            },
           ),
           Divider(),
           ListTile(
@@ -85,6 +149,82 @@ class _sensorsState extends State<sensors> {
                       ));
               Navigator.pushReplacement(context, route);
             },
+          ),
+          Divider(),
+          SizedBox(height: 40.0),
+          Text(
+            "Change the status of all sensors",
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(height: 10.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              SizedBox(
+                width: 10,
+              ),
+              FlutterSwitch(
+                showOnOff: true,
+                activeTextColor: Colors.black,
+                inactiveTextColor: Colors.blue.shade50,
+                value: status1,
+                onToggle: (val) {
+                  setState(() {
+                    status1 = val;
+                    if (val) {
+                      statuschange = 'active';
+                    } else {
+                      statuschange = 'deactive';
+                    }
+                    doupdate(statuschange);
+                  });
+                },
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "Status: $statuschange",
+                ),
+              ),
+            ],
+          ),
+          Divider(),
+          SizedBox(height: 40.0),
+          Text(
+            "Give access SO to enter the house",
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(height: 10.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              SizedBox(
+                width: 10,
+              ),
+              FlutterSwitch(
+                showOnOff: true,
+                activeTextColor: Colors.black,
+                inactiveTextColor: Colors.blue.shade50,
+                value: status2,
+                onToggle: (val) {
+                  setState(() {
+                    status2 = val;
+                    if (val) {
+                      statuschange2 = 'true';
+                    } else {
+                      statuschange2 = 'false';
+                    }
+                    doupdate2(statuschange2);
+                  });
+                },
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "Status: $statuschange2",
+                ),
+              ),
+            ],
           ),
         ],
       ),

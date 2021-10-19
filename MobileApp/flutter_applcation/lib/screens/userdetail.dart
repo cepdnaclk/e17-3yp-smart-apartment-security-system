@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_applcation/screens/Modes.dart';
-import 'package:flutter_applcation/screens/homenavdrawer.dart';
-import 'package:flutter_applcation/widgets/form_fields_widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
@@ -93,7 +91,7 @@ class _UserDetailsState extends State<UserDetails> {
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
                   Route route = MaterialPageRoute(
-                      builder: (_) => DrawerPage(value: value));
+                      builder: (_) => SwitchScreen(value: value));
                   Navigator.pushReplacement(context, route);
                 },
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,

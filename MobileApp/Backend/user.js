@@ -8,8 +8,6 @@ const jwt = require('jsonwebtoken');
 const config = require("./auth.config");
 const checkAuth = require('./middleware/check-auth');
 
-
-
 router.route('/register').post(async (req,res)=>{
 
 
@@ -111,7 +109,7 @@ router.route('/loginSO').post((req,res)=>{
 
     var sql = "SELECT * FROM securityofficer WHERE email=? AND password=?";
 
-    db.query(sql, [email,password],function(err,data,fields){
+    db.query(sql, [email,password],async function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
         }
@@ -188,6 +186,21 @@ router.route('/getallsensordetails/:email',checkAuth).get((req,res)=>{
     })
 });
 
+router.route('/getfpsensordetails/:email').get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select * from fingerprintsensor where houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
 router.route('/getso/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select phone from securityofficer where apartmentid = (SELECT apartmentid FROM user WHERE email = '${id}')`;
@@ -231,6 +244,32 @@ router.route('/updatemode/:email',checkAuth).post((req,res)=>{
     })
 });
 
+router.route('/updatemodesensor/:email').post((req,res)=>{
+    var id = req.params.email;
+    var status = req.body.status;
+    let sql = `UPDATE se SET status ='${status}' WHERE apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            res.send(JSON.stringify({success:true,message:'Successful'}));
+        }
+    })
+});
+
+router.route('/updatesoaccess/:email').post((req,res)=>{
+    var id = req.params.email;
+    var status = req.body.status;
+    let sql = `UPDATE soaccess SET soaccess ='${status}' WHERE houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            res.send(JSON.stringify({success:true,message:'Successful'}));
+        }
+    })
+});
+
 router.route('/getsensordetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from se where type = "window sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
@@ -263,7 +302,22 @@ router.route('/getmotionsensordetails/:email',checkAuth).get((req,res)=>{
     })
 });
 
-router.route('/getflamesensordetails/:email',checkAuth).get((req,res)=>{
+router.route('/getaccessfpsensordetails/:email').get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select * from soaccess where soaccess = 'true' and apartmentid = (SELECT apartmentid FROM securityofficer WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+router.route('/getflamesensordetails/:email').get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from se where type = "flame sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
@@ -299,7 +353,7 @@ router.route('/updateuserdetails/:email',checkAuth).post((req,res)=>{
     var name = req.body.name;
     var phone = req.body.phone;
     var houseid = req.body.houseid;
-    let sql = `UPDATE user SET name='${name}', phone='${phone}',houseid='${houseid}' WHERE email = '${id}'`;
+    let sql = `UPDATE user4 SET name='${name}', phone='${phone}',houseid='${houseid}' WHERE email = '${id}'`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
