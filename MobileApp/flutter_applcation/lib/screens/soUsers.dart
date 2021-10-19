@@ -17,8 +17,8 @@ class _soUsersState extends State<soUsers> {
   String value;
   _soUsersState(this.value);
   Future<List<Movies>> GetJson() async {
-    final data = await http
-        .get(Uri.parse('http://10.0.2.2:3000/user/getalluserdetails/' + value));
+    final data = await http.get(
+        Uri.parse('https://10.0.2.2:3000/user/getalluserdetails/' + value));
     var JsonData = jsonDecode(data.body);
     List<Movies> items = [];
     for (var m in JsonData) {

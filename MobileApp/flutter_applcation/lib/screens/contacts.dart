@@ -33,7 +33,7 @@ class _contactsState extends State<contacts> {
 
   Future<Album> fetchAlbum() async {
     final response =
-        await http.get(Uri.parse('http://10.0.2.2:3000/user/getso/' + value));
+        await http.get(Uri.parse('https://10.0.2.2:3000/user/getso/' + value));
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,

@@ -17,7 +17,7 @@ class _soSensorsState extends State<soSensors> {
   _soSensorsState(this.value);
   Future<List<Movies>> GetJson() async {
     final data = await http.get(
-        Uri.parse('http://10.0.2.2:3000/user/getallsensordetails/' + value));
+        Uri.parse('https://10.0.2.2:3000/user/getallsensordetails/' + value));
     var JsonData = jsonDecode(data.body);
     List<Movies> items = [];
     for (var m in JsonData) {

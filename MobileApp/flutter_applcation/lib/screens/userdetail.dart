@@ -52,7 +52,7 @@ class _UserDetailsState extends State<UserDetails> {
 
   Future<Album> fetchAlbum() async {
     final response = await http
-        .get(Uri.parse('http://10.0.2.2:3000/user/getdetails/' + value));
+        .get(Uri.parse('https://10.0.2.2:3000/user/getdetails/' + value));
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,
@@ -67,7 +67,7 @@ class _UserDetailsState extends State<UserDetails> {
 
   Future userUpdate(String name, String phone, String houseid) async {
     final response = await http.post(
-        Uri.parse("http://10.0.2.2:3000/user/updateuserdetails/" + value),
+        Uri.parse("https://10.0.2.2:3000/user/updateuserdetails/" + value),
         headers: {"Accept": "Application/json"},
         body: {'name': name, 'phone': phone, 'houseid': houseid});
 

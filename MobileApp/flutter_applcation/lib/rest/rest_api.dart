@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future userLogin(String email, String Password) async {
-  final response = await http.post(Uri.parse("http://10.0.2.2:3000/user/login"),
+  final response = await http.post(
+      Uri.parse("https://10.0.2.2:3000/user/login"),
       headers: {"Accept": "Application/json"},
       body: {'email': email, 'password': Password});
 
@@ -12,7 +13,7 @@ Future userLogin(String email, String Password) async {
 
 Future userLoginSO(String email, String Password) async {
   final response = await http.post(
-      Uri.parse("http://10.0.2.2:3000/user/loginSO"),
+      Uri.parse("https://10.0.2.2:3000/user/loginSO"),
       headers: {"Accept": "Application/json"},
       body: {'email': email, 'password': Password});
 
@@ -23,7 +24,7 @@ Future userLoginSO(String email, String Password) async {
 Future userRegister(String username, String email, String Password,
     String phone, String houseid, String apartmentid) async {
   final response = await http
-      .post(Uri.parse("http://10.0.2.2:3000/user/register"), headers: {
+      .post(Uri.parse("https://10.0.2.2:3000/user/register"), headers: {
     "Accept": "Application/json"
   }, body: {
     'name': username,
