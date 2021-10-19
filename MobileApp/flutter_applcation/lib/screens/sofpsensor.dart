@@ -16,7 +16,7 @@ class _sofpsensorState extends State<sofpsensor> {
   _sofpsensorState(this.value);
   Future<List<Movies>> GetJson() async {
     final data = await http.get(Uri.parse(
-        'http://10.0.2.2:3000/user/getaccessfpsensordetails/' + value));
+        'https://10.0.2.2:3000/user/getaccessfpsensordetails/' + value));
     var JsonData = jsonDecode(data.body);
     List<Movies> items = [];
     for (var m in JsonData) {

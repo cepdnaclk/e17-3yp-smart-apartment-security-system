@@ -102,20 +102,20 @@ router.route('/login').post(async(req,res)=>{
     });  
 
 });
-
-router.route('/loginSO').post((req,res)=>{
+/*
+router.route('/loginSO').post(async (req,res)=>{
     var email = req.body.email;
     var password = req.body.password;
 
     var sql = "SELECT * FROM securityofficer WHERE email=? AND password=?";
 
-    db.query(sql, [email,password],async function(err,data,fields){
+    db.query(sql, [email],async function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
         }
         else{
             if (data.length > 0){
-                //res.send(JSON.stringify({success:true,user:data}));
+                res.send(JSON.stringify({success:true,user:data}));
                 const validPassword = await bcrypt.compare(password, data[0].password);
                 if(validPassword){
                     const token= jwt.sign({
@@ -125,7 +125,7 @@ router.route('/loginSO').post((req,res)=>{
                     config.secret,
                     {
                         expiresIn: "1h"
-                    });
+                   // });
 
                     res.send(JSON.stringify({success:true,user:data, token: token}));
 
@@ -136,6 +136,25 @@ router.route('/loginSO').post((req,res)=>{
             }else{
                 res.send(JSON.stringify({success:false,message:"Not a registered Email"})); 
             }
+        }
+    });
+
+}); 
+*/
+router.route('/loginSO').post((req,res)=>{
+    var email = req.body.email;
+    var password = req.body.password;
+
+    var sql = "SELECT * FROM securityofficer WHERE email=? AND password=?";
+
+    db.query(sql, [email,password],function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+                res.send(JSON.stringify({success:true,user:data}));
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
         }
     });
 

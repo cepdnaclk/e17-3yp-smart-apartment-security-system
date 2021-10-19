@@ -26,7 +26,7 @@ class _sensorsState extends State<sensors> {
 
   Future updatemode(String status) async {
     final response = await http.post(
-        Uri.parse("http://10.0.2.2:3000/user/updatemodesensor/" + value),
+        Uri.parse("https://10.0.2.2:3000/user/updatemodesensor/" + value),
         headers: {
           "Accept": "Application/json"
         },
@@ -40,7 +40,7 @@ class _sensorsState extends State<sensors> {
 
   Future updateaccessSO(String status) async {
     final response = await http.post(
-        Uri.parse("http://10.0.2.2:3000/user/updatesoaccess/" + value),
+        Uri.parse("https://10.0.2.2:3000/user/updatesoaccess/" + value),
         headers: {
           "Accept": "Application/json"
         },

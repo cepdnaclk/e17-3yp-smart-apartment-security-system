@@ -16,7 +16,7 @@ class _fpSensorsState extends State<fpSensors> {
   _fpSensorsState(this.value);
   Future<List<fp>> GetJson() async {
     final data = await http.get(
-        Uri.parse('http://10.0.2.2:3000/user/getfpsensordetails/' + value));
+        Uri.parse('https://10.0.2.2:3000/user/getfpsensordetails/' + value));
     var JsonData = jsonDecode(data.body);
     List<fp> items = [];
     for (var m in JsonData) {

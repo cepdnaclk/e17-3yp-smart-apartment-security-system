@@ -34,7 +34,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
   String modes = 'Home';
   Future updatemode(String mode) async {
     final response = await http.post(
-        Uri.parse("http://10.0.2.2:3000/user/updatemode/" + value),
+        Uri.parse("https://10.0.2.2:3000/user/updatemode/" + value),
         headers: {
           "Accept": "Application/json"
         },
