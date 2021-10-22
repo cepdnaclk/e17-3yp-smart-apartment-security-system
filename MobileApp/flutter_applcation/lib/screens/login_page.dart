@@ -129,6 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                        key : ValueKey('textemail'),
                         controller: _emailController,
                         style: TextStyle(
                           color: Colors.black,
@@ -193,6 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
+                        key : ValueKey('textpassword'),
                         obscureText: true,
                         controller: _passwordController,
                         style: TextStyle(
@@ -227,6 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: 15,
                 ),
                 RaisedButton(
+                  key : ValueKey('loginbutton'),
                   onPressed: () {
                     _emailController.text.isNotEmpty &&
                             _passwordController.text.isNotEmpty //&& otpval
