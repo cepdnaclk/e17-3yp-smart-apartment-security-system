@@ -8,14 +8,14 @@ import 'package:http/http.dart' as http;
 
 class Album {
   //final int userId;
-  final int id;
+  //final int id;
   final String name;
   final String email;
   final int phone;
   final String houseid;
 
   Album(
-      {required this.id,
+      { //required this.id,
       required this.name,
       required this.email,
       required this.phone,
@@ -24,7 +24,7 @@ class Album {
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
         name: json['name'],
-        id: json['id'],
+        //id: json['id'],
         email: json['email'],
         phone: json['phone'],
         houseid: json['houseid']);
@@ -134,7 +134,7 @@ class _UserDetailsState extends State<UserDetails> {
                   child: Column(
                 children: [
                   buildTextField1("Full Name", false),
-                  buildTextField2("User ID", false),
+                  //buildTextField2("User ID", false),
                   buildTextField3("Phone Number", false),
                   buildTextField4("House ID", false),
                 ],
@@ -216,7 +216,7 @@ class _UserDetailsState extends State<UserDetails> {
       ]),
     );
   }
-
+/*
   Widget buildTextField2(String labelText, bool isPasswordTextField) {
     var isObscurePassword = true;
     return Padding(
@@ -257,6 +257,7 @@ class _UserDetailsState extends State<UserDetails> {
       ]),
     );
   }
+  */
 
   Widget buildTextField3(String labelText, bool isPasswordTextField) {
     var isObscurePassword = true;

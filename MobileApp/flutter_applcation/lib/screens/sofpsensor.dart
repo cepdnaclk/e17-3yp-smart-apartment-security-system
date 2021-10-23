@@ -18,10 +18,13 @@ class _sofpsensorState extends State<sofpsensor> {
     final data = await http.get(Uri.parse(
         'https://10.0.2.2:3000/user/getaccessfpsensordetails/' + value));
     var JsonData = jsonDecode(data.body);
+    //print(JsonData[0].toString());
     List<Movies> items = [];
-    for (var m in JsonData) {
-      Movies n = Movies(m['houseid']);
-      items.add(n);
+    if (JsonData[0].toString() != 'null') {
+      for (var m in JsonData) {
+        Movies n = Movies(m['houseid']);
+        items.add(n);
+      }
     }
     return items;
   }

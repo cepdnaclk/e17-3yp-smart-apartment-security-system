@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter_applcation/screens/Modes.dart';
 import 'package:flutter_applcation/screens/fpsensor.dart';
+import 'package:flutter_applcation/screens/windowsensor2.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_applcation/screens/flamesensor.dart';
 import 'package:flutter_applcation/screens/motionsensor.dart';
-import 'package:flutter_applcation/screens/windowsensors.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -95,7 +95,10 @@ class _sensorsState extends State<sensors> {
         scrollDirection: Axis.vertical,
         children: <Widget>[
           ListTile(
-            leading: Icon(Icons.doorbell),
+            leading: Icon(
+              Icons.meeting_room_rounded,
+              size: 40,
+            ),
             title: Text('Front Door'),
             subtitle: Text('Details of Front Door'),
             //trailing: Icon(Icons.menu),
@@ -109,7 +112,10 @@ class _sensorsState extends State<sensors> {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.fireplace),
+            leading: Icon(
+              Icons.fireplace,
+              size: 40,
+            ),
             title: Text('Flame Sensor'),
             subtitle: Text('Fire Detecting sensor'),
             //trailing: Icon(Icons.menu),
@@ -124,7 +130,10 @@ class _sensorsState extends State<sensors> {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.downhill_skiing),
+            leading: Icon(
+              Icons.directions_run_rounded,
+              size: 40,
+            ),
             title: Text('Motion Sensors'),
             subtitle: Text('Details about motions'),
             // trailing: Icon(Icons.menu),
@@ -138,13 +147,16 @@ class _sensorsState extends State<sensors> {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.window),
+            leading: Icon(
+              Icons.door_sliding_rounded,
+              size: 40,
+            ),
             title: Text('Window Sensors'),
             subtitle: Text('Change the Image'),
             // trailing: Icon(Icons.menu),
             onTap: () {
               Route route = MaterialPageRoute(
-                  builder: (_) => windowsensor(
+                  builder: (_) => windowsensor2(
                         value: value,
                       ));
               Navigator.pushReplacement(context, route);
@@ -152,9 +164,11 @@ class _sensorsState extends State<sensors> {
           ),
           Divider(),
           SizedBox(height: 40.0),
-          Text(
-            "Change the status of all sensors",
-            style: TextStyle(fontSize: 20),
+          Center(
+            child: Text(
+              "Change the status of all sensors",
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           SizedBox(height: 10.0),
           Row(
@@ -190,9 +204,11 @@ class _sensorsState extends State<sensors> {
           ),
           Divider(),
           SizedBox(height: 40.0),
-          Text(
-            "Give access SO to enter the house",
-            style: TextStyle(fontSize: 20),
+          Center(
+            child: Text(
+              "Give access SO to enter the house",
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           SizedBox(height: 10.0),
           Row(

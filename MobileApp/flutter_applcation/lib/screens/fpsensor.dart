@@ -60,7 +60,10 @@ class _fpSensorsState extends State<fpSensors> {
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
-                      leading: Icon(Icons.fingerprint_rounded),
+                      leading: Icon(
+                        Icons.fingerprint_rounded,
+                        size: 40,
+                      ),
                       title: Text(
                         snapshot.data[index].username,
                         style: TextStyle(color: Colors.blueGrey, fontSize: 18),
