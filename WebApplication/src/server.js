@@ -9,6 +9,9 @@ import connectFlash from "connect-flash";
 import passport from "passport";
 const path = require('path');
 
+const https =require('https');
+const fs = require('fs');
+
 let app = express();
 
 //load assets
@@ -38,6 +41,7 @@ configViewEngine(app);
 //Enable flash message
 app.use(connectFlash());
 
+
 //Config passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,4 +50,17 @@ app.use(passport.session());
 initWebRoutes(app);
 
 let port = process.env.PORT || 8081;
-app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));
+//app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));
+
+
+const sslServer = https.createServer({
+    key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
+},app);
+
+
+ sslServer.listen(port, () => console.log(`Secure server on 🔑 port ${port}!`));
+
+
+
+//https://localhost:8081/apartment

@@ -1,23 +1,23 @@
 <!-- Include Header -->
 <%- include('include/_header') %>
 <!-- /Include Header -->
-<h3>Apartment</h3>
+<h3>Sensors</h3>
 <!-- Main -->
 <main id="site-main">
     <div class="container">
         
         <!-- form handling-->
-        <a href="/addapartment" class="btn btn-sm btn-primary">Add Apartment</a>
+        <a href="/addsensor" class="btn btn-sm btn-primary">Add Sensor</a>
         <form action="/" method="POST">
             <table class="table">
                 <thead class="thread-dark">
                     <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>House Numbers</th>
-                    <th>Owner Name</th>
-                    <th>Mobile No</th>
-                    <th>Location</th>
+                    <th>Sensor ID</th>
+                    <th>Unique ID</th>
+                    <th>Type</th>
+                    <th>Mode</th>
+                    <th>status</th>
+                    <th>email</th>
                     <th>Actions</th>
                     </tr>
                     
@@ -26,16 +26,16 @@
                     <% users.forEach(function(user){ %>
                         <tr>
                             <td><%= user.id %></td>
-                            <td><%= user.name %></td>
-                            <td><%= user.houseno %></td>
-                            <td><%= user.owner %></td>
-                            <td><%= user.mobileno %></td>
-                            <td><%= user.location %></td>
+                            <td><%= user.uniqueid %></td>
+                            <td><%= user.type %></td>
+                            <td><%= user.mode %></td>
+                            <td><%= user.status %></td>
+                            <td><%= user.email %></td>
                             <td>
-                                <a href="editapartment/<%= user.id %>" class="btn border-shadow update">
+                                <a href="editsensors/<%= user.id %>" class="btn border-shadow update">
                                     <span class="text-gradient"><i class="fa fa-pencil-alt"></i></span>
                                 </a>
-                                <a href="deleteapartment/<%= user.id %>" class="btn border-shadow delete">
+                                <a href="deletesensor/<%= user.id %>" class="btn border-shadow delete">
                                     <span class="text-gradient"><i class="fa fa-times" aria-hidden="true"></i></span>
                                 </a>
                             </td>

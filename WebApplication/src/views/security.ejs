@@ -1,23 +1,21 @@
 <!-- Include Header -->
 <%- include('include/_header') %>
 <!-- /Include Header -->
-<h3>Apartment</h3>
+<h3>Security</h3>
 <!-- Main -->
 <main id="site-main">
     <div class="container">
         
         <!-- form handling-->
-        <a href="/addapartment" class="btn btn-sm btn-primary">Add Apartment</a>
+        <a href="/addofficer" class="btn btn-sm btn-primary">Add Officer</a>
         <form action="/" method="POST">
             <table class="table">
                 <thead class="thread-dark">
                     <tr>
-                    <th>ID</th>
+                    <th>Security ID</th>
                     <th>Name</th>
-                    <th>House Numbers</th>
-                    <th>Owner Name</th>
+                    <th>ApartmentID</th>
                     <th>Mobile No</th>
-                    <th>Location</th>
                     <th>Actions</th>
                     </tr>
                     
@@ -25,17 +23,15 @@
                 <tbody>
                     <% users.forEach(function(user){ %>
                         <tr>
-                            <td><%= user.id %></td>
-                            <td><%= user.name %></td>
-                            <td><%= user.houseno %></td>
-                            <td><%= user.owner %></td>
-                            <td><%= user.mobileno %></td>
-                            <td><%= user.location %></td>
+                            <td><%= user.SecID %></td>
+                            <td><%= user.Name %></td>
+                            <td><%= user.ApartmentID %></td>
+                            <td><%= user.MobileNo %></td>
                             <td>
-                                <a href="editapartment/<%= user.id %>" class="btn border-shadow update">
+                                <a href="editofficer/<%= user.SecID %>" class="btn border-shadow update">
                                     <span class="text-gradient"><i class="fa fa-pencil-alt"></i></span>
                                 </a>
-                                <a href="deleteapartment/<%= user.id %>" class="btn border-shadow delete">
+                                <a href="deleteofficer/<%= user.SecID %>" class="btn border-shadow delete">
                                     <span class="text-gradient"><i class="fa fa-times" aria-hidden="true"></i></span>
                                 </a>
                             </td>
