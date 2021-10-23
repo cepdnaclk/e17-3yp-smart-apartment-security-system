@@ -68,7 +68,7 @@ router.route('/login').post(async(req,res)=>{
     var email = req.body.email;
     var password = req.body.password;
 
-    var sql = "SELECT * FROM user WHERE email=?";
+    var sql = "SELECT * FROM user4 WHERE email=?";
 
     db.query(sql, [email],async function(err,data,fields){
         //console.log(data);
@@ -84,7 +84,7 @@ router.route('/login').post(async(req,res)=>{
                         email : data[0].email
 
                     },
-                    'secret',
+                    config.secret,
                     {
                         expiresIn: "1h"
                     });
@@ -141,7 +141,7 @@ router.route('/loginSO').post(async (req,res)=>{
 
 }); 
 */
-router.route('/loginSO').post(checkAuth,(req,res)=>{
+router.route('/loginSO').post((req,res)=>{
     var email = req.body.email;
     var password = req.body.password;
 
@@ -160,7 +160,7 @@ router.route('/loginSO').post(checkAuth,(req,res)=>{
 
 }); 
 
-router.route('/getdetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getdetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from user4 where email = '${id}'`;
     db.query(sql,function(err,data,fields){
@@ -175,7 +175,7 @@ router.route('/getdetails/:email').get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/sogetdetails/:email').get(checkAuth,(req,res)=>{
+router.route('/sogetdetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from securityofficer where email = '${id}'`;
     db.query(sql,function(err,data,fields){
@@ -190,9 +190,9 @@ router.route('/sogetdetails/:email').get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/getallsensordetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getallsensordetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from se where apartmentid = (SELECT apartmentid FROM securityofficer WHERE email = '${id}')`;
+    let sql = `Select * from sensors where apartmentid = (SELECT apartmentid FROM securityofficer WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -205,7 +205,22 @@ router.route('/getallsensordetails/:email').get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/getfpsensordetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getactivesensordetails/:email',checkAuth).get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select * from sensors where status = 'active' and houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
+            res.send(data);
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+router.route('/getfpsensordetails/:email').get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from fingerprintsensor where houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
@@ -220,9 +235,9 @@ router.route('/getfpsensordetails/:email').get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/getso/:email',checkAuth).get(checkAuth,(req,res)=>{
+router.route('/getso/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select phone from securityofficer where apartmentid = (SELECT apartmentid FROM user WHERE email = '${id}')`;
+    let sql = `Select phone from securityofficer where apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -235,7 +250,7 @@ router.route('/getso/:email',checkAuth).get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/getalluserdetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getalluserdetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
     let sql = `Select name,phone,houseid from user4 where apartmentid = (SELECT apartmentid FROM securityofficer WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
@@ -250,10 +265,10 @@ router.route('/getalluserdetails/:email').get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/updatemode/:email').post(checkAuth,(req,res)=>{
+router.route('/updatemode/:email',checkAuth).post((req,res)=>{
     var id = req.params.email;
     var mode = req.body.mode;
-    let sql = `UPDATE sensor SET mode='${mode}' WHERE email = '${id}'`;
+    let sql = `UPDATE sensors SET mode='${mode}' WHERE houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -263,10 +278,10 @@ router.route('/updatemode/:email').post(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/updatemodesensor/:email').post(checkAuth,(req,res)=>{
+router.route('/updatemodesensor/:email').post((req,res)=>{
     var id = req.params.email;
     var status = req.body.status;
-    let sql = `UPDATE se SET status ='${status}' WHERE apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
+    let sql = `UPDATE sensors SET status ='${status}' WHERE apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -276,7 +291,20 @@ router.route('/updatemodesensor/:email').post(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/updatesoaccess/:email').post(checkAuth,(req,res)=>{
+router.route('/updatemodesensorstatus/:uniqueid').post((req,res)=>{
+    var id = req.params.uniqueid;
+    var status = req.body.status;
+    let sql = `UPDATE sensors SET status='${status}' WHERE uniqueid = '${id}'`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            res.send(JSON.stringify({success:true,message:'Successful'}));
+        }
+    })
+});
+
+router.route('/updatesoaccess/:email').post((req,res)=>{
     var id = req.params.email;
     var status = req.body.status;
     let sql = `UPDATE soaccess SET soaccess ='${status}' WHERE houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
@@ -289,16 +317,16 @@ router.route('/updatesoaccess/:email').post(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/getsensordetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getsensordetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from se where type = "window sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
+    let sql = `Select * from sensors where type = "window sensor" and houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;//new
     //let sql = `Select * from sensor where email = '${id}' and type = "window"`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
         }else{
             if(data.length > 0)
-            res.send(data[0]);
+            res.send(data);//new
             else
             res.send(JSON.stringify({success:false,message:"Empty data"})); 
         }
@@ -306,9 +334,9 @@ router.route('/getsensordetails/:email').get(checkAuth,(req,res)=>{
 });
 
 
-router.route('/getmotionsensordetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getmotionsensordetails/:email',checkAuth).get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from se where type = "motion sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
+    let sql = `Select * from sensors where type = "motion sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -321,7 +349,7 @@ router.route('/getmotionsensordetails/:email').get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/getaccessfpsensordetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getaccessfpsensordetails/:email').get((req,res)=>{
     var id = req.params.email;
     let sql = `Select * from soaccess where soaccess = 'true' and apartmentid = (SELECT apartmentid FROM securityofficer WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
@@ -336,9 +364,9 @@ router.route('/getaccessfpsensordetails/:email').get(checkAuth,(req,res)=>{
     })
 });
 
-router.route('/getflamesensordetails/:email').get(checkAuth,(req,res)=>{
+router.route('/getflamesensordetails/:email').get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from se where type = "flame sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
+    let sql = `Select * from sensors where type = "flame sensor" and apartmentid = (SELECT apartmentid FROM user4 WHERE email = '${id}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -352,22 +380,7 @@ router.route('/getflamesensordetails/:email').get(checkAuth,(req,res)=>{
 });
 
 
-router.route('/getmessage/:id',checkAuth).post(checkAuth,(req,res)=>{
-    var id = req.params.id;
-    let sql = `Select * from message where id = '${id}'`;
-    db.query(sql,function(err,data,fields){
-        if(err){
-            res.send(JSON.stringify({success:false,message:err}));
-        }else{
-            if(data.length > 0)
-            res.send(JSON.stringify({status:true,msg:data[0].message}))
-            else
-                res.send(JSON.stringify({success:false,message:"Empty data"})); 
-        }
-    })
-});
-
-router.route('/updateuserdetails/:email').post(checkAuth,(req,res)=>{
+router.route('/updateuserdetails/:email',checkAuth).post((req,res)=>{
     var id = req.params.email;
     var name = req.body.name;
     var phone = req.body.phone;

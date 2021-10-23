@@ -7,7 +7,7 @@ var connection = mysql.createConnection
     user : 'root',
     password : '',
     port : '3306',
-    database : 'safenet'
+    database : 'safenetmain'
 });
 
 connection.connect(function(err){
