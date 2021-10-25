@@ -9,6 +9,28 @@ import 'package:flutter_applcation/screens/motionsensor.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+class sensor {
+  //final int userId;
+  //final int id;
+  final String uniqueid;
+  final String type;
+  final String status;
+
+  sensor(
+      { //required this.id,
+      required this.uniqueid,
+      required this.type,
+      required this.status});
+
+  factory sensor.fromJson(Map<String, dynamic> json) {
+    return sensor(
+        //id: json['id'],
+        uniqueid: json['uniqueid'],
+        type: json['type'],
+        status: json['status']);
+  }
+}
+
 class sensors extends StatefulWidget {
   late String value;
   sensors({required this.value});
@@ -23,6 +45,46 @@ class _sensorsState extends State<sensors> {
   String statuschange = 'active';
   String statuschange2 = 'false';
   _sensorsState(this.value);
+
+  late Future<sensor> futureAlbum;
+  late Future<sensor> futureAlbum2;
+
+  Future<sensor> fetchAlbum() async {
+    final response = await http.get(
+        Uri.parse('https://10.0.2.2:3000/user/getflamesensordetails/' + value));
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      return sensor.fromJson(jsonDecode(response.body));
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load album');
+    }
+  }
+
+  Future<sensor> fetchAlbum2() async {
+    final response = await http.get(Uri.parse(
+        'https://10.0.2.2:3000/user/getmotionsensordetails/' + value));
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      return sensor.fromJson(jsonDecode(response.body));
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load album');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    futureAlbum = fetchAlbum();
+    futureAlbum2 = fetchAlbum2();
+  }
 
   Future updatemode(String status) async {
     final response = await http.post(
@@ -95,10 +157,8 @@ class _sensorsState extends State<sensors> {
         scrollDirection: Axis.vertical,
         children: <Widget>[
           ListTile(
-            leading: Icon(
-              Icons.meeting_room_rounded,
-              size: 40,
-            ),
+            leading:
+                Icon(Icons.meeting_room_rounded, size: 40, color: Colors.brown),
             title: Text('Front Door'),
             subtitle: Text('Details of Front Door'),
             //trailing: Icon(Icons.menu),
@@ -111,45 +171,75 @@ class _sensorsState extends State<sensors> {
             },
           ),
           Divider(),
-          ListTile(
-            leading: Icon(
-              Icons.fireplace,
-              size: 40,
-            ),
-            title: Text('Flame Sensor'),
-            subtitle: Text('Fire Detecting sensor'),
-            //trailing: Icon(Icons.menu),
-            onTap: () {
-              Route route = MaterialPageRoute(
-                  builder: (_) => flamesensor(
-                        value: value,
-                      ));
-              Navigator.pushReplacement(context, route);
-            },
-            onLongPress: () {},
-          ),
+          FutureBuilder<sensor>(
+              future: futureAlbum,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListTile(
+                    leading: Icon(
+                      Icons.fireplace,
+                      size: 40,
+                      color: Colors.red.shade900,
+                    ),
+                    title: Text('Flame Sensor'),
+                    subtitle: Text(
+                      'Status : ' + snapshot.data!.status,
+                      style: TextStyle(color: Colors.red.shade800),
+                    ),
+                    //trailing: Icon(Icons.menu),
+                    onTap: () {
+                      Route route = MaterialPageRoute(
+                          builder: (_) => flamesensor(
+                                value: value,
+                              ));
+                      Navigator.pushReplacement(context, route);
+                    },
+                    onLongPress: () {},
+                  );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
+                // By default, show a loading spinner.
+                return const CircularProgressIndicator();
+              }),
           Divider(),
-          ListTile(
-            leading: Icon(
-              Icons.directions_run_rounded,
-              size: 40,
-            ),
-            title: Text('Motion Sensors'),
-            subtitle: Text('Details about motions'),
-            // trailing: Icon(Icons.menu),
-            onTap: () {
-              Route route = MaterialPageRoute(
-                  builder: (_) => motionsensor(
-                        value: value,
-                      ));
-              Navigator.pushReplacement(context, route);
-            },
-          ),
+          FutureBuilder<sensor>(
+              future: futureAlbum2,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListTile(
+                    leading: Icon(
+                      Icons.directions_run_rounded,
+                      size: 40,
+                      color: Colors.amber,
+                    ),
+                    title: Text('Motion Sensors'),
+                    subtitle: Text(
+                      'Status :' + snapshot.data!.status,
+                      style: TextStyle(color: Colors.red.shade600),
+                    ),
+                    //trailing: Icon(Icons.menu),
+                    onTap: () {
+                      Route route = MaterialPageRoute(
+                          builder: (_) => motionsensor(
+                                value: value,
+                              ));
+                      Navigator.pushReplacement(context, route);
+                    },
+                    onLongPress: () {},
+                  );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
+                // By default, show a loading spinner.
+                return const CircularProgressIndicator();
+              }),
           Divider(),
           ListTile(
             leading: Icon(
               Icons.door_sliding_rounded,
               size: 40,
+              color: Colors.teal.shade600,
             ),
             title: Text('Window Sensors'),
             subtitle: Text('Change the Image'),
