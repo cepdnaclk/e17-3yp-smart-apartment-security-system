@@ -5,7 +5,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'safenet'
+    database: 'safenetmain'
 });
 
 connection.connect(function(err) {

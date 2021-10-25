@@ -1,7 +1,7 @@
 import DBConnection from "./../configs/DBConnection";
 
 let security = async (req, res) => {
-    let sql = "SELECT * FROM securityofficers";
+    let sql = "SELECT * FROM securityofficer";
     let query = DBConnection.query(sql, (err, rows) => {
         if(err) throw err;
         res.render('security', {
@@ -17,8 +17,8 @@ let securityregister = (req, res) => {
 };
 
 let savesecuritydetail = async (req, res) => { 
-    let data = {name: req.body.name, ApartmentID: req.body.ApartmentID, MobileNo: req.body.MobileNo};
-    let sql = "INSERT INTO securityofficers SET ?";
+    let data = {name: req.body.name, apartmentid: req.body.ApartmentID, phone: req.body.MobileNo, email: req.body.email, password: req.body.password};
+    let sql = "INSERT INTO securityofficer SET ?";
     let query = DBConnection.query(sql, data,(err, results) => {
       if(err) throw err;
       res.redirect('/security');
@@ -27,7 +27,7 @@ let savesecuritydetail = async (req, res) => {
 
 let deleteofficer = async (req, res) => {
     const userId = req.params.userId;
-    let sql = `DELETE from securityofficers where SecID = ${userId}`;
+    let sql = `DELETE from securityofficer where id = ${userId}`;
     let query = DBConnection.query(sql,(err, result) => {
         if(err) throw err;
         res.redirect('/security');
@@ -36,16 +36,16 @@ let deleteofficer = async (req, res) => {
 
 let updateofficer = async (req, res) => {
     const userId = req.body.id;
-    let sql = "update securityofficers SET name='"+req.body.name+"',  ApartmentID='"+req.body.ApartmentID+"', MobileNo='"+req.body.MobileNo+"' where SecID ="+userId;
+    let sql = "update securityofficer SET name='"+req.body.name+"',  apartmentid='"+req.body.ApartmentID+"', phone='"+req.body.MobileNo+"', email='"+req.body.email+"' where id ="+userId;
     let query = DBConnection.query(sql,(err, results) => {
       if(err) throw err;
-      res.redirect('/');
+      res.redirect('/security');
     });
 };
 
 let editofficer = async (req, res) => {
     const userId = req.params.userId;
-    let sql = `Select * from securityofficers where SecID = ${userId}`;
+    let sql = `Select * from securityofficer where id = ${userId}`;
     let query = DBConnection.query(sql,(err, result) => {
         if(err) throw err;
         res.render('security_edit', {

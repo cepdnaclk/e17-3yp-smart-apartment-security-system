@@ -1,7 +1,7 @@
 import DBConnection from "./../configs/DBConnection";
 
 let sensors = async (req, res) => {
-    let sql = "SELECT * FROM sensor";
+    let sql = "SELECT * FROM sensors";
     let query = DBConnection.query(sql, (err, rows) => {
         if(err) throw err;
         res.render('sensors', {
@@ -17,8 +17,8 @@ let sensorsregister = (req, res) => {
 };
 
 let savesensorsdetail = async (req, res) => { 
-    let data = {id: req.body.id, uniqueid: req.body.uniqueid, type: req.body.type, mode: req.body.mode, status: req.body.status, email: req.body.email};
-    let sql = "INSERT INTO sensor SET ?";
+    let data = {uniqueid: req.body.uniqueid, type: req.body.type, mode: req.body.mode, status: req.body.status, houseid: req.body.houseid, apartmentid: req.body.apartmentid};
+    let sql = "INSERT INTO sensors SET ?";
     let query = DBConnection.query(sql, data,(err, results) => {
       if(err) throw err;
       res.redirect('/sensors');
@@ -27,7 +27,7 @@ let savesensorsdetail = async (req, res) => {
 
 let deletesensor = async (req, res) => {
     const userId = req.params.userId;
-    let sql = `DELETE from sensor where id = ${userId}`;
+    let sql = `DELETE from sensors where uniqueid = '${userId}'`;
     let query = DBConnection.query(sql,(err, result) => {
         if(err) throw err;
         res.redirect('/sensors');
@@ -35,8 +35,8 @@ let deletesensor = async (req, res) => {
 };
 
 let updatesensors = async (req, res) => {
-    const userId = req.body.id;
-    let sql = "update sensor SET uniqueid='"+req.body.uniqueid+"',  type='"+req.body.type+"', mode='"+req.body.mode+"', email='"+req.body.email+"' where id ="+userId;
+    const userId = req.body.uniqueid;
+    let sql = "update sensors SET uniqueid='"+req.body.uniqueid+"',  type='"+req.body.type+"', mode='"+req.body.mode+"', houseid='"+req.body.houseid+"', apartmentid='"+req.body.apartmentid+"' where uniqueid ='"+userId+"'";
     let query = DBConnection.query(sql,(err, results) => {
       if(err) throw err;
       res.redirect('/sensors');
@@ -45,7 +45,7 @@ let updatesensors = async (req, res) => {
 
 let editsensors = async (req, res) => {
     const userId = req.params.userId;
-    let sql = `Select * from sensor where id = ${userId}`;
+    let sql = `Select * from sensors where uniqueid = '${userId}'`;
     let query = DBConnection.query(sql,(err, result) => {
         if(err) throw err;
         res.render('sensor_edit', {
