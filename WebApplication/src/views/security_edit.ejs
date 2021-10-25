@@ -19,17 +19,22 @@
                   <input type="hidden" value="<%= user.id %>" name="id">
                     <div class="form-group">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" name="name" id="name" value="<%= user.Name %>" required>
+                        <input type="text" class="form-control" name="name" id="name" value="<%= user.name %>" required>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="ApartmentID">Apartment ID</label>
-                        <input type="text" name="ApartmentID" class="form-control" id="ApartmentID" value="<%= user.ApartmentID %>" required>
+                        <input type="text" name="ApartmentID" class="form-control" id="ApartmentID" value="<%= user.apartmentid %>" required>
                     </div>
                     <br>
                     <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" name="email" class="form-control" id="email" value="<%= user.email %>" required>
+                  </div>
+                  <br>
+                    <div class="form-group">
                         <label for="MobileNo">Mobile Number</label>
-                        <input type="text" class="form-control" name="MobileNo" id="MobileNo" value="<%= user.MobileNo %>" required>
+                        <input type="text" class="form-control" name="MobileNo" id="MobileNo" value="<%= user.phone %>" required>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Save</button>

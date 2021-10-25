@@ -16,11 +16,6 @@
               <h1 class="text-center mb-3">Sensor Registration</h1>
                 <form method="POST" action="/savesensor">
                     <div class="form-group">
-                        <label for="name">ID</label>
-                        <input type="id" class="form-control" name="id" id="id" placeholder="Enter ID" required>
-                    </div>
-                    <br>
-                    <div class="form-group">
                         <label for="name">Unique ID</label>
                         <input type="uniqueid" class="form-control" name="uniqueid" id="uniqueid" placeholder="Enter Unique ID" required>
                     </div>
@@ -41,8 +36,13 @@
                     </div>
                     <br>
                     <div class="form-group">
-                        <label for="mobileno">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter Sensor email" required>
+                        <label for="houseid">House ID</label>
+                        <input type="houseid" name="houseid" class="form-control" id="houseid" placeholder="Enter House ID" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="apartmentid">Apartment ID</label>
+                        <input type="apartmentid" name="apartmentid" class="form-control" id="apartmentid" placeholder="Enter Apartment ID" required>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Register</button>

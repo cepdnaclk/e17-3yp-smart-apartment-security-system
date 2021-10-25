@@ -1,15 +1,13 @@
 <% users.forEach(function(user){ %>
     <tr>
-        <td><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.houseid %></td>
-        <td><%= user.mobileno %></td>
+        <td><%= user.apartmentid %></td>
+        <td><%= user.phone %></td>
         <td>
-            <a href="edit/<%= user.id %>" class="btn border-shadow update">
-                <span class="text-gradient"><i class="fa fa-pencil-alt"></i></span>
-            </a>
-            <a href="delete/<%= user.id %>" class="btn border-shadow delete">
+
+            <a href="delete/<%= user.houseid %>" class="btn border-shadow delete">
                 <span class="text-gradient"><i class="fa fa-times" aria-hidden="true"></i></span>
             </a>
         </td>

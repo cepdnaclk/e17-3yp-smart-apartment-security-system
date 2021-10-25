@@ -12,12 +12,12 @@
             <table class="table">
                 <thead class="thread-dark">
                     <tr>
-                    <th>Sensor ID</th>
                     <th>Unique ID</th>
                     <th>Type</th>
                     <th>Mode</th>
-                    <th>status</th>
-                    <th>email</th>
+                    <th>Status</th>
+                    <th>HouseID</th>
+                    <th>ApartmentID</th>
                     <th>Actions</th>
                     </tr>
                     
@@ -25,17 +25,17 @@
                 <tbody>
                     <% users.forEach(function(user){ %>
                         <tr>
-                            <td><%= user.id %></td>
                             <td><%= user.uniqueid %></td>
                             <td><%= user.type %></td>
                             <td><%= user.mode %></td>
                             <td><%= user.status %></td>
-                            <td><%= user.email %></td>
+                            <td><%= user.houseid %></td>
+                            <td><%= user.apartmentid %></td>
                             <td>
-                                <a href="editsensors/<%= user.id %>" class="btn border-shadow update">
+                                <a href="editsensors/<%= user.uniqueid %>" class="btn border-shadow update">
                                     <span class="text-gradient"><i class="fa fa-pencil-alt"></i></span>
                                 </a>
-                                <a href="deletesensor/<%= user.id %>" class="btn border-shadow delete">
+                                <a href="deletesensor/<%= user.uniqueid %>" class="btn border-shadow delete">
                                     <span class="text-gradient"><i class="fa fa-times" aria-hidden="true"></i></span>
                                 </a>
                             </td>
