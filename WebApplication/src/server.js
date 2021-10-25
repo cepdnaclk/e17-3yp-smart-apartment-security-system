@@ -49,7 +49,7 @@ app.use(passport.session());
 // init all web routes
 initWebRoutes(app);
 
-let port = process.env.PORT || 8081;
+let port = process.env.PORT || 3000;
 //app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));
 
 
