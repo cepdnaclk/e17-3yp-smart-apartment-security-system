@@ -190,6 +190,21 @@ let initWebRoutes = (app) => {
             }
         })
     });
+
+    router.route('/user/getmodedetails/:email',checkAuth).get((req,res)=>{
+        var id = req.params.email;
+        let sql = `Select mode from sensors where houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
+        db.query(sql,function(err,data,fields){
+            if(err){
+                res.send(JSON.stringify({success:false,message:err}));
+            }else{
+                if(data.length > 0)
+                res.send(data[0]);
+                else
+                res.send(JSON.stringify({success:false,message:"Empty data"})); 
+            }
+        })
+    });
     
     router.route('/user/sogetdetails/:email',checkAuth).get((req,res)=>{
         var id = req.params.email;

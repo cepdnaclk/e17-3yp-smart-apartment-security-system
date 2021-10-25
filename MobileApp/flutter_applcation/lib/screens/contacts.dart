@@ -94,6 +94,7 @@ class _contactsState extends State<contacts> {
                     leading: Icon(
                       Icons.person,
                       size: 40,
+                      color: Colors.blueAccent,
                     ),
                     title: Text('Security Officer'),
                     subtitle: Text(phne),
@@ -115,6 +116,7 @@ class _contactsState extends State<contacts> {
             leading: Icon(
               Icons.security_sharp,
               size: 40,
+              color: Colors.green,
             ),
             title: Text('Emergency Number'),
             subtitle: Text('119'),
@@ -132,6 +134,7 @@ class _contactsState extends State<contacts> {
             leading: Icon(
               Icons.local_police,
               size: 40,
+              color: Colors.indigo,
             ),
             title: Text('Sri Lanka Police'),
             subtitle: Text('0112222222'),
