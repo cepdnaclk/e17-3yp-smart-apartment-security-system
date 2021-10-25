@@ -22,7 +22,10 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "bcrypt": "^5.0.1",
+    "joi": "^17.4.2",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
