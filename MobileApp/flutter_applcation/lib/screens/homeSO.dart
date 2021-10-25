@@ -28,6 +28,7 @@ class _sohomeState extends State<sohome> {
             leading: Icon(
               Icons.person,
               size: 40,
+              color: Colors.purpleAccent,
             ),
             title: Text('House Owners'),
             subtitle: Text('Contacts of the House Owners'),
@@ -43,6 +44,7 @@ class _sohomeState extends State<sohome> {
             leading: Icon(
               Icons.sensor_window_rounded,
               size: 40,
+              color: Colors.indigoAccent,
             ),
             title: Text('Sensors'),
             subtitle: Text('Activation details about sensors'),
@@ -59,6 +61,7 @@ class _sohomeState extends State<sohome> {
             leading: Icon(
               Icons.sensor_door,
               size: 40,
+              color: Colors.purpleAccent,
             ),
             title: Text('Front Door Sensors'),
             subtitle: Text('The frontdoors that Security Officer can access'),
@@ -76,6 +79,7 @@ class _sohomeState extends State<sohome> {
             leading: Icon(
               Icons.logout,
               size: 40,
+              color: Colors.indigoAccent,
             ),
             title: Text('Logout'),
             //subtitle: Text('Activation Details about front doors'),

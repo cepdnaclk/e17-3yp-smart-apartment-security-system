@@ -24,7 +24,7 @@ class _LoginPageSOState extends State<LoginPageSO> {
   late SharedPreferences _sharedPreferences;
   late String value;
   late EmailAuth emailAuth;
-  var otpval;
+  var otpval = false;
   @override
   void initState() {
     super.initState();
@@ -242,9 +242,10 @@ class _LoginPageSOState extends State<LoginPageSO> {
                 RaisedButton(
                   onPressed: () {
                     _emailController.text.isNotEmpty &&
-                            _passwordController.text.isNotEmpty //&& otpval
-                        ? doLogin(
-                            _emailController.text, _passwordController.text)
+                            _passwordController.text.isNotEmpty &&
+                            _otp.text.isNotEmpty
+                        ? doLogin(_emailController.text,
+                            _passwordController.text, otpval)
                         : Fluttertoast.showToast(
                             msg: 'All fields are required',
                             textColor: Colors.red);
@@ -263,10 +264,10 @@ class _LoginPageSOState extends State<LoginPageSO> {
     );
   }
 
-  doLogin(String email, String password) async {
+  doLogin(String email, String password, var otp) async {
     _sharedPreferences = await SharedPreferences.getInstance();
     var res = await userLoginSO(email.trim(), password.trim());
-    if (res['success']) {
+    if (res['success'] & otp) {
       print(res['success']);
       String userEmail = res['user'][0]['email'];
       int userId = res['user'][0]['id'];
