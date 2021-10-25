@@ -50,7 +50,7 @@ app.use(passport.session());
 initWebRoutes(app);
 
 let port = process.env.PORT || 3000;
-//app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));
+app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));
 
 
 const sslServer = https.createServer({
@@ -59,7 +59,7 @@ const sslServer = https.createServer({
 },app);
 
 
- sslServer.listen(port, () => console.log(`Secure server on 🔑 port ${port}!`));
+ //sslServer.listen(port, () => console.log(`Secure server on 🔑 port ${port}!`));
 
 
 
