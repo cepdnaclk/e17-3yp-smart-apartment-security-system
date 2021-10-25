@@ -91,7 +91,10 @@ class _contactsState extends State<contacts> {
                 if (snapshot.hasData) {
                   String phne = snapshot.data!.phone.toString();
                   return ListTile(
-                    leading: Icon(Icons.person),
+                    leading: Icon(
+                      Icons.person,
+                      size: 40,
+                    ),
                     title: Text('Security Officer'),
                     subtitle: Text(phne),
                     //trailing: Icon(Icons.menu),
@@ -109,7 +112,10 @@ class _contactsState extends State<contacts> {
               }),
           Divider(),
           ListTile(
-            leading: Icon(Icons.fireplace),
+            leading: Icon(
+              Icons.security_sharp,
+              size: 40,
+            ),
             title: Text('Emergency Number'),
             subtitle: Text('119'),
             //trailing: Icon(Icons.menu),
@@ -123,7 +129,10 @@ class _contactsState extends State<contacts> {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.local_police),
+            leading: Icon(
+              Icons.local_police,
+              size: 40,
+            ),
             title: Text('Sri Lanka Police'),
             subtitle: Text('0112222222'),
             // trailing: Icon(Icons.menu),

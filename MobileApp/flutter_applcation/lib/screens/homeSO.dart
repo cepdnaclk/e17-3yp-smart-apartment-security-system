@@ -25,7 +25,10 @@ class _sohomeState extends State<sohome> {
         scrollDirection: Axis.vertical,
         children: <Widget>[
           ListTile(
-            leading: Icon(Icons.person),
+            leading: Icon(
+              Icons.person,
+              size: 40,
+            ),
             title: Text('House Owners'),
             subtitle: Text('Contacts of the House Owners'),
             //trailing: Icon(Icons.menu),
@@ -37,7 +40,10 @@ class _sohomeState extends State<sohome> {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.sensor_window_rounded),
+            leading: Icon(
+              Icons.sensor_window_rounded,
+              size: 40,
+            ),
             title: Text('Sensors'),
             subtitle: Text('Activation details about sensors'),
             //trailing: Icon(Icons.menu),
@@ -50,7 +56,10 @@ class _sohomeState extends State<sohome> {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.sensor_door),
+            leading: Icon(
+              Icons.sensor_door,
+              size: 40,
+            ),
             title: Text('Front Door Sensors'),
             subtitle: Text('The frontdoors that Security Officer can access'),
             // trailing: Icon(Icons.menu),
@@ -64,7 +73,10 @@ class _sohomeState extends State<sohome> {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.logout),
+            leading: Icon(
+              Icons.logout,
+              size: 40,
+            ),
             title: Text('Logout'),
             //subtitle: Text('Activation Details about front doors'),
             // trailing: Icon(Icons.menu),

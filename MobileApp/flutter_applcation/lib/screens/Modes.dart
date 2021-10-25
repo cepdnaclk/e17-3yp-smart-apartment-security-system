@@ -72,7 +72,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
-                icon: const Icon(Icons.health_and_safety_sharp),
+                icon: const Icon(Icons.security_sharp),
                 iconSize: 120,
                 onPressed: () {},
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
@@ -123,7 +123,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                   activeColor: Colors.green,
                   inactiveColor: Colors.white,
                   activeIcon: Icon(
-                    Icons.run_circle,
+                    Icons.light_mode_rounded,
                     color: Color(0xFFF8E3A1),
                   ),
                   inactiveIcon: Icon(
@@ -189,7 +189,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
-                                Icon(Icons.sensor_door_rounded),
+                                Icon(Icons.sensors_sharp),
                                 Text("Sensors")
                               ],
                             ))),
@@ -219,7 +219,9 @@ class _SwitchScreenState extends State<SwitchScreen> {
                         child: FlatButton(
                             onPressed: () {
                               Route route = MaterialPageRoute(
-                                  builder: (_) => notification());
+                                  builder: (_) => notification(
+                                        value: value,
+                                      ));
                               Navigator.pushReplacement(context, route);
                             },
                             color: _scaffoldBgcolor,
@@ -227,7 +229,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
-                                Icon(Icons.notification_add),
+                                Icon(Icons.notifications_active_sharp),
                                 Text("Notification")
                               ],
                             ))),
@@ -252,7 +254,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
-                                Icon(Icons.phone_android_rounded),
+                                Icon(Icons.add_ic_call_rounded),
                                 Text("Contacts")
                               ],
                             ))),

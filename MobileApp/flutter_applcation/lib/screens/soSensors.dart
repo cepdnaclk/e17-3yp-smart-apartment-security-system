@@ -20,9 +20,11 @@ class _soSensorsState extends State<soSensors> {
         Uri.parse('https://10.0.2.2:3000/user/getallsensordetails/' + value));
     var JsonData = jsonDecode(data.body);
     List<Movies> items = [];
-    for (var m in JsonData) {
-      Movies n = Movies(m['type'], m['status'], m['houseid']);
-      items.add(n);
+    if (JsonData[0].toString() != 'null') {
+      for (var m in JsonData) {
+        Movies n = Movies(m['type'], m['status'], m['houseid']);
+        items.add(n);
+      }
     }
     return items;
   }

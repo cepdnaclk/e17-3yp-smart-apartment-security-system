@@ -5,20 +5,20 @@ import 'package:http/http.dart' as http;
 
 class sensor {
   //final int userId;
-  final int id;
+  //final int id;
   final String uniqueid;
   final String type;
   final String status;
 
   sensor(
-      {required this.id,
+      { //required this.id,
       required this.uniqueid,
       required this.type,
       required this.status});
 
   factory sensor.fromJson(Map<String, dynamic> json) {
     return sensor(
-        id: json['id'],
+        //id: json['id'],
         uniqueid: json['uniqueid'],
         type: json['type'],
         status: json['status']);
@@ -107,7 +107,7 @@ class _flamesensorState extends State<flamesensor> {
               const SizedBox(
                 height: 30,
               ),
-              buildTextField1("ID", false),
+              // buildTextField1("ID", false),
               buildTextField2("Unique ID", false),
               buildTextField3("Type", false),
               buildTextField4("Status", false),
@@ -116,6 +116,7 @@ class _flamesensorState extends State<flamesensor> {
         ));
   }
 
+/*
   Widget buildTextField1(String labelText, bool isPasswordTextField) {
     var isObscurePassword = true;
     return Padding(
@@ -156,7 +157,7 @@ class _flamesensorState extends State<flamesensor> {
       ]),
     );
   }
-
+*/
   Widget buildTextField2(String labelText, bool isPasswordTextField) {
     var isObscurePassword = true;
     return Padding(

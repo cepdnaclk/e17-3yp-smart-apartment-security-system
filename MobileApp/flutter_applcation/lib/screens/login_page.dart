@@ -129,7 +129,6 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
-                        key : ValueKey('textemail'),
                         controller: _emailController,
                         style: TextStyle(
                           color: Colors.black,
@@ -194,7 +193,6 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
-                        key : ValueKey('textpassword'),
                         obscureText: true,
                         controller: _passwordController,
                         style: TextStyle(
@@ -229,7 +227,6 @@ class _LoginPageState extends State<LoginPage> {
                   width: 15,
                 ),
                 RaisedButton(
-                  key : ValueKey('loginbutton'),
                   onPressed: () {
                     _emailController.text.isNotEmpty &&
                             _passwordController.text.isNotEmpty //&& otpval
@@ -299,9 +296,9 @@ class _LoginPageState extends State<LoginPage> {
     if (res['success']) {
       print(res['success']);
       String userEmail = res['user'][0]['email'];
-      int userId = res['user'][0]['id'];
+      //int userId = res['user'][0]['id'];
       value = userEmail;
-      _sharedPreferences.setInt('userid', userId);
+      //_sharedPreferences.setInt('userid', userId);
       _sharedPreferences.setString('usermail', userEmail);
 
       Route route =
