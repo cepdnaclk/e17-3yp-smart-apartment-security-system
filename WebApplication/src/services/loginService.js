@@ -1,5 +1,5 @@
-import DBConnection from "../configs/DBConnection";
-import bcrypt from "bcryptjs";
+const DBConnection =require("../configs/DBConnection");
+const bcrypt =require("bcryptjs");
 
 let handleLogin = (email, password) => {
     return new Promise(async (resolve, reject) => {

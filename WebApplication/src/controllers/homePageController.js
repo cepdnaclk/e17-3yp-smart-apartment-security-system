@@ -1,4 +1,4 @@
-import DBConnection from "./../configs/DBConnection";
+const DBConnection = require("./../configs/DBConnection");
 
 let handleHelloWorld = async (req, res) => {
     let sql = "SELECT * FROM user4";

@@ -1,8 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_applcation/screens/contacts.dart';
+import 'package:flutter_applcation/screens/layout.dart';
 import 'package:flutter_applcation/screens/notification.dart';
 import 'package:flutter_applcation/screens/sensor.dart';
 import 'package:flutter_applcation/screens/userdetail.dart';
@@ -202,7 +202,13 @@ class _SwitchScreenState extends State<SwitchScreen> {
                   children: <Widget>[
                     Expanded(
                         child: FlatButton(
-                            onPressed: () => {},
+                            onPressed: () {
+                              Route route = MaterialPageRoute(
+                                  builder: (_) => ImageScreen(
+                                        value: value,
+                                      ));
+                              Navigator.pushReplacement(context, route);
+                            },
                             color: _scaffoldBgcolor,
                             padding: EdgeInsets.all(10.0),
                             child: Row(

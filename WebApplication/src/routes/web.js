@@ -1,14 +1,15 @@
-import express from "express";
-import homePageController from "../controllers/homePageController";
-import registerController from "../controllers/registerController";
-import loginController from "../controllers/loginController";
-import auth from "../validation/authValidation";
-import passport from "passport";
-import initPassportLocal from "../controllers/passportLocalController";
-import apartments from "../controllers/apartments";
-import security from "../controllers/securitycontrol";
-import sensors from "../controllers/sensors";
-import db from "./../configs/DBConnection";
+const express = require('express');
+const homePageController = require("../controllers/homePageController");
+const registerController = require("../controllers/registerController");
+const loginController = require("../controllers/loginController");
+const layoutController = require("../controllers/layouts");
+const auth = require("../validation/authValidation");
+const passport = require("passport");
+const initPassportLocal = require("../controllers/passportLocalController");
+const apartments = require("../controllers/apartments");
+const security = require("../controllers/securitycontrol");
+const sensors = require("../controllers/sensors");
+const db = require("./../configs/DBConnection");
 const {registrationSchema}= require('./validationformobile');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -443,6 +444,9 @@ let initWebRoutes = (app) => {
     router.get('/sensors', sensors.sensors);
     router.get('/addsensor', sensors.sensorsregister);
     router.post("/savesensor", sensors.savesensorsdetail);
+    router.get("/layout", layoutController.index);
+    router.post("/layout", layoutController.index);
+    router.get("/layout/:id", layoutController.profile);
 
     router.get("/deleteapartment/:userId", apartments.deleteapartment);
     router.get("/deleteofficer/:userId", security.deleteofficer);
