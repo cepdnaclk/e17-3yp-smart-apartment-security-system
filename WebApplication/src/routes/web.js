@@ -168,7 +168,7 @@ let initWebRoutes = (app) => {
         })
     });
 
-    router.route('/user/getmodedetails/:email',checkAuth).get((req,res)=>{
+    router.route('/user/getmodedetails/:email').get(checkAuth,(req,res)=>{
         var id = req.params.email;
         let sql = `Select mode from sensors where houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
         db.query(sql,function(err,data,fields){
