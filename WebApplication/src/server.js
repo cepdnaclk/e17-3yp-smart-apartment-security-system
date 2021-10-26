@@ -1,21 +1,26 @@
 //require('dotenv').config();
-import express from "express";
-import configViewEngine from "./configs/viewEngine";
-import initWebRoutes from "./routes/web";
-import bodyParser from "body-parser";
-import cookieParser from 'cookie-parser';
-import session from "express-session";
-import connectFlash from "connect-flash";
-import passport from "passport";
+const express = require('express');
+const configViewEngine = require("./configs/viewEngine");
+const initWebRoutes = require("./routes/web");
+const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
+const session = require("express-session");
+const connectFlash = require("connect-flash");
+const passport = require("passport");
 const path = require('path');
 
 const https =require('https');
 const fs = require('fs');
 
+var fileUpload = require('express-fileupload');
+
 let app = express();
+
+app.use(fileUpload());
 
 //load assets
 app.use('/css', express.static(path.resolve(__dirname, "public/css")))
+app.use(express.static(path.join(__dirname, 'public')));
 
 //use cookie parser
 app.use(cookieParser('secret'));

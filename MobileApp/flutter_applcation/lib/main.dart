@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: sohome(value: ''),
+      //home: ImageScreen(value: ,),
       home: MyHomePage(title: 'SAFENET'),
     );
   }
