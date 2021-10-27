@@ -18,7 +18,7 @@ let sensorsregister = (req, res) => {
 };
 
 let savesensorsdetail = async (req, res) => { 
-    let data = {uniqueid: req.body.uniqueid, type: req.body.type, mode: req.body.mode, status: req.body.status, houseid: req.body.houseid, apartmentid: req.body.apartmentid};
+    let data = {uniqueid: req.body.uniqueid, type: req.body.type, mode: "false", status: "deactivate", houseid: req.body.houseid, apartmentid: req.body.apartmentid};
     let sql = "INSERT INTO sensors SET ?";
     let query = DBConnection.query(sql, data,(err, results) => {
       if(err) throw err;
@@ -37,7 +37,7 @@ let deletesensor = async (req, res) => {
 
 let updatesensors = async (req, res) => {
     const userId = req.body.uniqueid;
-    let sql = "update sensors SET uniqueid='"+req.body.uniqueid+"',  type='"+req.body.type+"', mode='"+req.body.mode+"', houseid='"+req.body.houseid+"', apartmentid='"+req.body.apartmentid+"' where uniqueid ='"+userId+"'";
+    let sql = "update sensors SET uniqueid='"+req.body.uniqueid+"',  type='"+req.body.type+"', houseid='"+req.body.houseid+"', apartmentid='"+req.body.apartmentid+"' where uniqueid ='"+userId+"'";
     let query = DBConnection.query(sql,(err, results) => {
       if(err) throw err;
       res.redirect('/sensors');
