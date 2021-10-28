@@ -32,7 +32,7 @@ let updateowners = async (req, res) => {
 
 let deleteowner = async (req, res) => {
     const userId = req.params.userId;
-    let sql = `DELETE from houseowners where houseid = "${userId}"`;
+    let sql = `DELETE from user4 where houseid = "${userId}"`;
     let query = DBConnection.query(sql,(err, result) => {
         if(err) throw err;
         res.redirect('/');
