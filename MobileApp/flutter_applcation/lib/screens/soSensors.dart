@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/homeSO.dart';
+import 'package:flutter_application/screens/homeSO.dart';
 import 'package:http/http.dart' as http;
 
 class soSensors extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/Modes.dart';
+import 'package:flutter_application/screens/Modes.dart';
 
 class ImageScreen extends StatelessWidget {
   late String value;

@@ -1,9 +1,8 @@
 import 'package:email_auth/email_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/rest/rest_api.dart';
-import 'package:flutter_applcation/screens/login_page.dart';
-import 'package:flutter_applcation/widgets/form_fields_widgets.dart';
+import 'package:flutter_application/rest/rest_api.dart';
+import 'package:flutter_application/screens/login_page.dart';
+import 'package:flutter_application/widgets/form_fields_widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -92,7 +91,7 @@ class RegisterPageState extends State<RegisterPage> {
                     ),
                     titleWidget(),
                     SizedBox(
-                      height: 15,
+                      height: 10,
                     ),
                     Form(
                         key: _formKey,
@@ -208,7 +207,7 @@ class RegisterPageState extends State<RegisterPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         // ignore: deprecated_member_use
-                        RaisedButton(
+                        ElevatedButton(
                           onPressed: () {
                             if (username.text.isNotEmpty &&
                                 password.text.isNotEmpty &&
@@ -237,7 +236,10 @@ class RegisterPageState extends State<RegisterPage> {
                                   textColor: Colors.red);
                             }
                           },
-                          color: Colors.blue,
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.blue),
+                          ),
                           child: Text(
                             'Register',
                             style: TextStyle(color: Colors.white),

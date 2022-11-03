@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_applcation/screens/login_page.dart';
-import 'package:flutter_applcation/screens/soSensors.dart';
-import 'package:flutter_applcation/screens/soUsers.dart';
-import 'package:flutter_applcation/screens/sofpsensor.dart';
+import 'package:flutter_application/screens/soSensors.dart';
+import 'package:flutter_application/screens/soUsers.dart';
+import 'package:flutter_application/screens/sofpsensor.dart';
+
+import 'login_page.dart';
 
 class sohome extends StatefulWidget {
   late String value;

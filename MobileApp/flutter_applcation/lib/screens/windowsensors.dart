@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/sensor.dart';
+import 'package:flutter_application/screens/sensor.dart';
 import 'package:http/http.dart' as http;
 
 class sensor {
