@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'package:flutter_applcation/screens/Modes.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'Modes.dart';
 
 class Album {
   //final int userId;

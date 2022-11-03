@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/Modes.dart';
+import 'package:flutter_application/screens/Modes.dart';
 import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
 

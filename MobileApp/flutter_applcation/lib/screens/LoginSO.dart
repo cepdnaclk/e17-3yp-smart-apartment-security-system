@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/rest/rest_api.dart';
-import 'package:flutter_applcation/screens/homeSO.dart';
+import 'package:flutter_application/rest/rest_api.dart';
+import 'package:flutter_application/screens/homeSO.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,33 +27,6 @@ class _LoginPageSOState extends State<LoginPageSO> {
   @override
   void initState() {
     super.initState();
-    // Initialize the package
-    emailAuth = EmailAuth(
-      sessionName: "Safenet Email verification",
-    );
-  }
-
-  void verify() {
-    // ignore: avoid_print
-    otpval = (emailAuth.validateOtp(
-        recipientMail: _emailController.value.text, userOtp: _otp.value.text));
-    print(otpval);
-    if (otpval) {
-      Fluttertoast.showToast(msg: 'Email Verified', textColor: Colors.red);
-    } else {
-      Fluttertoast.showToast(msg: 'Email Not Verified', textColor: Colors.red);
-    }
-  }
-
-  void sendOtp() async {
-    bool result = await emailAuth.sendOtp(
-        recipientMail: _emailController.value.text, otpLength: 5);
-    if (result) {
-      Fluttertoast.showToast(
-          msg: 'OTP sent successfully', textColor: Colors.red);
-    } else {
-      Fluttertoast.showToast(msg: "OTP could't sent", textColor: Colors.red);
-    }
   }
 
   @override
@@ -81,11 +53,11 @@ class _LoginPageSOState extends State<LoginPageSO> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            gradient: new LinearGradient(
+            gradient: LinearGradient(
                 colors: [Colors.blue.shade600, Colors.black87],
                 begin: const FractionalOffset(0.0, 1.0),
                 end: const FractionalOffset(0.0, 1.0),
-                stops: [0.0, 1.0],
+                stops: const [0.0, 1.0],
                 tileMode: TileMode.repeated)),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -95,27 +67,27 @@ class _LoginPageSOState extends State<LoginPageSO> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Center(
                     child: Text(
                       "SAFENET",
                       style: GoogleFonts.sarpanch(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                         color: Colors.white,
-                        fontSize: 50,
+                        fontSize: 30,
                       )),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Center(
                     child: Text(
                       "Login of Security Officer",
                       style: GoogleFonts.sarpanch(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                         color: Colors.white,
                         fontSize: 21,
                       )),
@@ -126,13 +98,13 @@ class _LoginPageSOState extends State<LoginPageSO> {
             ),
             Container(
               alignment: Alignment.center,
-              child: Icon(
+              child: const Icon(
                 Icons.add_moderator,
-                size: 150,
+                size: 120,
                 color: Colors.white,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Form(
@@ -143,64 +115,24 @@ class _LoginPageSOState extends State<LoginPageSO> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
                         controller: _emailController,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           height: 2,
                         ),
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.email),
-                            filled: true,
-                            fillColor: Colors.white,
-                            //border: OutlineInputBorder(),
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            hintText: "Email",
-                            hintStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            suffixIcon: TextButton(
-                              child: const Text(
-                                'Send OTP',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ),
-                              onPressed: () => sendOtp(),
-                            )),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        controller: _otp,
-                        style: TextStyle(
-                          color: Colors.black,
-                          height: 2,
+                        decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          filled: true,
+                          fillColor: Colors.white,
+                          //border: OutlineInputBorder(),
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                          ),
+                          hintText: "Email",
+                          hintStyle: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.notification_add),
-                            filled: true,
-                            fillColor: Colors.white,
-                            //border: OutlineInputBorder(),
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            hintText: "Enter OTP",
-                            hintStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            suffixIcon: TextButton(
-                              child: const Text(
-                                'Verify Email',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ),
-                              onPressed: () => verify(),
-                            )),
                       ),
                     ),
                     Padding(
@@ -208,12 +140,12 @@ class _LoginPageSOState extends State<LoginPageSO> {
                       child: TextField(
                         obscureText: true,
                         controller: _passwordController,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           height: 2,
                         ),
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           prefixIcon: Icon(Icons.lock),
                           filled: true,
                           fillColor: Colors.white,
@@ -230,16 +162,16 @@ class _LoginPageSOState extends State<LoginPageSO> {
                     ),
                   ],
                 )),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     _emailController.text.isNotEmpty &&
                             _passwordController.text.isNotEmpty &&
@@ -250,8 +182,10 @@ class _LoginPageSOState extends State<LoginPageSO> {
                             msg: 'All fields are required',
                             textColor: Colors.red);
                   },
-                  color: Colors.blue,
-                  child: Text(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                  child: const Text(
                     'Login',
                     style: TextStyle(color: Colors.white),
                   ),
