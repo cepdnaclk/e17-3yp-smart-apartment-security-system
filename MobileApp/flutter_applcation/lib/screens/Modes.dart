@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_applcation/screens/contacts.dart';
-import 'package:flutter_applcation/screens/layout.dart';
-import 'package:flutter_applcation/screens/notification.dart';
-import 'package:flutter_applcation/screens/sensor.dart';
-import 'package:flutter_applcation/screens/userdetail.dart';
+import 'package:flutter_application/screens/contacts.dart';
+import 'package:flutter_application/screens/layout.dart';
+import 'package:flutter_application/screens/notification.dart';
+import 'package:flutter_application/screens/sensor.dart';
+import 'package:flutter_application/screens/userdetail.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -73,39 +73,39 @@ class _SwitchScreenState extends State<SwitchScreen> {
             builder: (BuildContext context) {
               return IconButton(
                 icon: const Icon(Icons.security_sharp),
-                iconSize: 120,
+                iconSize: 90,
                 onPressed: () {},
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               );
             },
           ),
-          leadingWidth: 120,
-          toolbarHeight: 140,
+          leadingWidth: 100,
+          toolbarHeight: 110,
         ),
         backgroundColor: Colors.white54,
         body: Column(children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Colors.white70,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            margin: EdgeInsets.all(50),
-            padding: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(50),
+            padding: const EdgeInsets.all(10),
             child: Column(
               children: [
-                Text(
+                const Text(
                   "Select the Mode",
                   style: TextStyle(
-                      fontSize: 25.0,
+                      fontSize: 20.0,
                       color: Colors.black,
                       letterSpacing: 2.0,
                       fontWeight: FontWeight.w400),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 FlutterSwitch(
-                  width: 130.0,
-                  height: 75.0,
+                  width: 110.0,
+                  height: 65.0,
                   toggleSize: 60.0,
                   value: status7,
                   borderRadius: 50.0,
@@ -122,11 +122,11 @@ class _SwitchScreenState extends State<SwitchScreen> {
                   ),
                   activeColor: Colors.green,
                   inactiveColor: Colors.white,
-                  activeIcon: Icon(
+                  activeIcon: const Icon(
                     Icons.light_mode_rounded,
                     color: Color(0xFFF8E3A1),
                   ),
-                  inactiveIcon: Icon(
+                  inactiveIcon: const Icon(
                     Icons.home,
                     color: Color(0xFFFFDF5D),
                   ),
@@ -138,24 +138,24 @@ class _SwitchScreenState extends State<SwitchScreen> {
                       if (val) {
                         modes = 'Away';
                         _textColor = Colors.white;
-                        _appBarColor = Color.fromRGBO(22, 27, 34, 1);
+                        _appBarColor = const Color.fromRGBO(22, 27, 34, 1);
                         _scaffoldBgcolor = Colors.green;
                       } else {
                         modes = 'Home';
                         _textColor = Colors.black;
-                        _appBarColor = Color.fromRGBO(36, 41, 46, 1);
+                        _appBarColor = const Color.fromRGBO(36, 41, 46, 1);
                         _scaffoldBgcolor = Colors.blue;
                       }
                     });
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Row(
                   children: <Widget>[
                     Expanded(
-                        child: FlatButton(
+                        child: ElevatedButton(
                             onPressed: () {
                               Route route = MaterialPageRoute(
                                   builder: (_) => UserDetails(
@@ -163,20 +163,24 @@ class _SwitchScreenState extends State<SwitchScreen> {
                                       ));
                               Navigator.pushReplacement(context, route);
                             },
-                            color: _scaffoldBgcolor,
-                            padding: EdgeInsets.all(10.0),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(_scaffoldBgcolor),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(10)),
+                            ),
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
                                 Icon(Icons.person),
-                                Text("User Details")
+                                Text("User")
                               ],
                             ))),
                     const SizedBox(
-                      width: 25,
+                      width: 20,
                     ),
                     Expanded(
-                        child: FlatButton(
+                        child: ElevatedButton(
                             onPressed: () {
                               Route route = MaterialPageRoute(
                                   builder: (_) => sensors(
@@ -184,8 +188,12 @@ class _SwitchScreenState extends State<SwitchScreen> {
                                       ));
                               Navigator.pushReplacement(context, route);
                             },
-                            color: _scaffoldBgcolor,
-                            padding: EdgeInsets.all(10.0),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(_scaffoldBgcolor),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(10)),
+                            ),
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
@@ -201,7 +209,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                 Row(
                   children: <Widget>[
                     Expanded(
-                        child: FlatButton(
+                        child: ElevatedButton(
                             onPressed: () {
                               Route route = MaterialPageRoute(
                                   builder: (_) => ImageScreen(
@@ -209,8 +217,12 @@ class _SwitchScreenState extends State<SwitchScreen> {
                                       ));
                               Navigator.pushReplacement(context, route);
                             },
-                            color: _scaffoldBgcolor,
-                            padding: EdgeInsets.all(10.0),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(_scaffoldBgcolor),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(10)),
+                            ),
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
@@ -222,7 +234,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                       width: 25,
                     ),
                     Expanded(
-                        child: FlatButton(
+                        child: ElevatedButton(
                             onPressed: () {
                               Route route = MaterialPageRoute(
                                   builder: (_) => notification(
@@ -230,13 +242,20 @@ class _SwitchScreenState extends State<SwitchScreen> {
                                       ));
                               Navigator.pushReplacement(context, route);
                             },
-                            color: _scaffoldBgcolor,
-                            padding: EdgeInsets.all(10.0),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(_scaffoldBgcolor),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(10)),
+                            ),
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
                                 Icon(Icons.notifications_active_sharp),
-                                Text("Notification")
+                                Text(
+                                  "Notification",
+                                  style: TextStyle(fontSize: 12),
+                                ),
                               ],
                             ))),
                   ],
@@ -247,7 +266,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                 Row(
                   children: <Widget>[
                     Expanded(
-                        child: FlatButton(
+                        child: ElevatedButton(
                             onPressed: () {
                               Route route = MaterialPageRoute(
                                   builder: (_) => contacts(
@@ -255,8 +274,12 @@ class _SwitchScreenState extends State<SwitchScreen> {
                                       ));
                               Navigator.pushReplacement(context, route);
                             },
-                            color: _scaffoldBgcolor,
-                            padding: EdgeInsets.all(10.0),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(_scaffoldBgcolor),
+                              padding: MaterialStateProperty.all(
+                                  const EdgeInsets.all(10)),
+                            ),
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
@@ -268,18 +291,23 @@ class _SwitchScreenState extends State<SwitchScreen> {
                       width: 25,
                     ),
                     Expanded(
-                        child: FlatButton(
+                        child: ElevatedButton(
                             onPressed: () => {
                                   SchedulerBinding.instance!
                                       .addPostFrameCallback((_) {
                                     Navigator.push(
                                         context,
-                                        new MaterialPageRoute(
-                                            builder: (context) => LoginPage()));
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const LoginPage()));
                                   })
                                 },
-                            color: _scaffoldBgcolor,
-                            padding: EdgeInsets.all(10.0),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(_scaffoldBgcolor),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(10)),
+                            ),
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[

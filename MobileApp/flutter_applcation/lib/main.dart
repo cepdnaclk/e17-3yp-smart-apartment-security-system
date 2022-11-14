@@ -1,9 +1,10 @@
+//main file
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/login_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_application/screens/login_page.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   HttpOverrides.global = new MyHttpOverrides();

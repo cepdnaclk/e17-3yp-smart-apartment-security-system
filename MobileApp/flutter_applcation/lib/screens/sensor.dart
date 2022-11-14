@@ -1,13 +1,14 @@
 import 'dart:convert';
-import 'package:flutter_applcation/screens/Modes.dart';
-import 'package:flutter_applcation/screens/fpsensor.dart';
-import 'package:flutter_applcation/screens/windowsensor2.dart';
+import 'package:flutter_application/screens/Modes.dart';
+import 'package:flutter_application/screens/fpsensor.dart';
+import 'package:flutter_application/screens/motionsensor.dart';
+import 'package:flutter_application/screens/windowsensor2.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:flutter_applcation/screens/flamesensor.dart';
-import 'package:flutter_applcation/screens/motionsensor.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
+import 'flamesensor.dart';
 
 class sensor {
   //final int userId;
