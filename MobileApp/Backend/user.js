@@ -222,7 +222,7 @@ router.route('/getactivesensordetails/:email',checkAuth).get((req,res)=>{
 
 router.route('/getfpsensordetails/:email').get((req,res)=>{
     var id = req.params.email;
-    let sql = `Select * from fingerprintsensor where houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;
+    let sql = `Select * from accesshousedetails where houseid = (SELECT houseid FROM user4 WHERE email = '${id}')  LIMIT 5`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
@@ -326,6 +326,22 @@ router.route('/getsensordetails/:email',checkAuth).get((req,res)=>{
             res.send(JSON.stringify({success:false,message:err}));
         }else{
             if(data.length > 0)
+            res.send(data[0]);//new
+            else
+            res.send(JSON.stringify({success:false,message:"Empty data"})); 
+        }
+    })
+});
+
+router.route('/getwindowsensordetails/:email',checkAuth).get((req,res)=>{
+    var id = req.params.email;
+    let sql = `Select * from sensors where type = "window sensor" and houseid = (SELECT houseid FROM user4 WHERE email = '${id}')`;//new
+    //let sql = `Select * from sensor where email = '${id}' and type = "window"`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            if(data.length > 0)
             res.send(data);//new
             else
             res.send(JSON.stringify({success:false,message:"Empty data"})); 
@@ -386,6 +402,19 @@ router.route('/updateuserdetails/:email',checkAuth).post((req,res)=>{
     var phone = req.body.phone;
     var houseid = req.body.houseid;
     let sql = `UPDATE user4 SET name='${name}', phone='${phone}',houseid='${houseid}' WHERE email = '${id}'`;
+    db.query(sql,function(err,data,fields){
+        if(err){
+            res.send(JSON.stringify({success:false,message:err}));
+        }else{
+            res.send(JSON.stringify({success:true,message:'Successful'}));
+        }
+    })
+});
+
+router.route('/accesshousedetails',checkAuth).post((req,res)=>{
+    var houseid = req.body.houseid;
+    var name = req.body.name;
+    let sql = `INSERT INTO accesshousedetails(houseid, name) VALUES ('${houseid}','${name}')`;
     db.query(sql,function(err,data,fields){
         if(err){
             res.send(JSON.stringify({success:false,message:err}));
