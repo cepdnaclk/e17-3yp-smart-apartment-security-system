@@ -11,6 +11,18 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'login_page.dart';
 
+class modeofhouse {
+  final String mode_house;
+
+  modeofhouse({required this.mode_house});
+
+  factory modeofhouse.fromJson(Map<String, dynamic> json) {
+    return modeofhouse(
+        //id: json['id'],
+        mode_house: json['mode']);
+  }
+}
+
 class SwitchScreen extends StatefulWidget {
   late String value;
   SwitchScreen({required this.value});
@@ -21,8 +33,29 @@ class SwitchScreen extends StatefulWidget {
 
 class _SwitchScreenState extends State<SwitchScreen> {
   String value;
-
+  late Future<modeofhouse> futureAlbum;
   _SwitchScreenState(this.value);
+  Future<modeofhouse> fetchAlbum() async {
+    final response = await http
+        .get(Uri.parse('https://10.0.2.2:3000/user/getsensordetails/' + value));
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      return modeofhouse.fromJson(jsonDecode(response.body));
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load album');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    futureAlbum = fetchAlbum();
+    print(futureAlbum);
+  }
 
   bool status7 = false;
 
@@ -31,6 +64,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
   Color _textColor = Colors.black;
   Color _appBarColor = Colors.green;
   Color _scaffoldBgcolor = Colors.blueAccent;
+
   String modes = 'Home';
   Future updatemode(String mode) async {
     final response = await http.post(
@@ -237,9 +271,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
                         child: ElevatedButton(
                             onPressed: () {
                               Route route = MaterialPageRoute(
-                                  builder: (_) => notification(
-                                        value: value,
-                                      ));
+                                  builder: (_) => notification());
                               Navigator.pushReplacement(context, route);
                             },
                             style: ButtonStyle(
@@ -251,9 +283,9 @@ class _SwitchScreenState extends State<SwitchScreen> {
                             child: Row(
                               // Replace with a Row for horizontal icon + text
                               children: const <Widget>[
-                                Icon(Icons.notifications_active_sharp),
+                                Icon(Icons.account_circle_rounded),
                                 Text(
-                                  "Notification",
+                                  "About Us",
                                   style: TextStyle(fontSize: 12),
                                 ),
                               ],

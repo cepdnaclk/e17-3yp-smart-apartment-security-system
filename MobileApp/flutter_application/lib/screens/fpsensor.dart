@@ -20,7 +20,7 @@ class _fpSensorsState extends State<fpSensors> {
     var JsonData = jsonDecode(data.body);
     List<fp> items = [];
     for (var m in JsonData) {
-      fp n = fp(m['date'], m['time'], m['username']);
+      fp n = fp(m['date'], m['name']);
       items.add(n);
     }
     return items;
@@ -65,14 +65,12 @@ class _fpSensorsState extends State<fpSensors> {
                         size: 40,
                       ),
                       title: Text(
-                        snapshot.data[index].username,
+                        snapshot.data[index].name,
                         style: TextStyle(color: Colors.blueGrey, fontSize: 18),
                       ),
 
                       subtitle: Text(
-                        snapshot.data[index].date +
-                            " " +
-                            snapshot.data[index].time,
+                        snapshot.data[index].date,
                         style: TextStyle(color: Colors.black),
                       ),
                       //isThreeLine: true,
@@ -88,9 +86,8 @@ class _fpSensorsState extends State<fpSensors> {
 
 class fp {
   String date;
-  String time;
-  String username;
-  fp(this.date, this.time, this.username);
+  String name;
+  fp(this.date, this.name);
 }
 
 class MyHttpOverrides extends HttpOverrides {

@@ -1,33 +1,30 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application/screens/Modes.dart';
+import 'package:flutter_application/screens/sensor.dart';
 import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
 
-class notification extends StatefulWidget {
+class windowsensor2 extends StatefulWidget {
   late String value;
-  notification({required this.value});
+  windowsensor2({required this.value});
   @override
-  _notificationState createState() => _notificationState(value);
+  _windowsensor2State createState() => _windowsensor2State(value);
 }
 
-class _notificationState extends State<notification> {
+class _windowsensor2State extends State<windowsensor2> {
   String value;
-  _notificationState(this.value);
+  _windowsensor2State(this.value);
   final double _borderRadius = 24;
 
-  Future<List<Movies>> GetJson() async {
+  Future<List<sensor>> GetJson() async {
     final data = await http.get(Uri.parse(
-        'https://10.0.2.2:3000/user/getactivesensordetails/' + value));
+        'https://10.0.2.2:3000/user/getwindowsensordetails/' + value));
     var JsonData = jsonDecode(data.body);
-    List<Movies> items = [];
-    if (JsonData[0].toString() != 'null') {
-      for (var m in JsonData) {
-        Movies n = Movies(m['type'], m['status'], m['uniqueid']);
-        items.add(n);
-      }
+    List<sensor> items = [];
+    for (var m in JsonData) {
+      sensor n = sensor(m['uniqueid'], m['status'], m['type']);
+      items.add(n);
     }
     return items;
   }
@@ -36,14 +33,14 @@ class _notificationState extends State<notification> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notification'),
+        title: Text('Window Sensor Details'),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(Icons.navigate_before),
               onPressed: () {
-                Route route = MaterialPageRoute(
-                    builder: (_) => SwitchScreen(value: value));
+                Route route =
+                    MaterialPageRoute(builder: (_) => sensors(value: value));
                 Navigator.pushReplacement(context, route);
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
@@ -103,7 +100,7 @@ class _notificationState extends State<notification> {
                               children: <Widget>[
                                 Expanded(
                                   child: Icon(
-                                    Icons.notification_add,
+                                    Icons.window_rounded,
                                     size: 50,
                                   ),
                                   flex: 2,
@@ -116,8 +113,7 @@ class _notificationState extends State<notification> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
-                                        snapshot.data[index].uniqueid +
-                                            " Sensor is triggered",
+                                        snapshot.data[index].uniqueid,
                                         style: TextStyle(
                                             fontSize: 15,
                                             color: Colors.white,
@@ -135,15 +131,6 @@ class _notificationState extends State<notification> {
                                       SizedBox(height: 10),
                                       Text(
                                         snapshot.data[index].type,
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.white,
-                                          fontFamily: 'Avenir',
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      Text(
-                                        "21/10/2021  06.30pm",
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.white,
@@ -170,11 +157,11 @@ class _notificationState extends State<notification> {
   }
 }
 
-class Movies {
+class sensor {
   String type;
   String status;
   String uniqueid;
-  Movies(this.type, this.status, this.uniqueid);
+  sensor(this.type, this.status, this.uniqueid);
 }
 
 class CustomCardShapePainter extends CustomPainter {

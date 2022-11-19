@@ -45,6 +45,10 @@ dependencies:
   google_fonts: ^3.0.1
   email_validator: ^2.1.17
   flutter_switch: ^0.3.2
+  path: ^1.8.2
+  path_provider: ^2.0.11
+  slider_button: ^2.0.0
+  contactus: ^1.2.0
 
 dev_dependencies:
   flutter_test:
