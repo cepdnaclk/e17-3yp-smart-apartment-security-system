@@ -2,1402 +2,1097 @@
 <html lang="en">
 
 <head>
-    <!-- basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1 minimum-scale=1">
-    <!-- site metas -->
-    <title>Smart Apartment Security System</title>
-    <link rel="shortcut icon" type="text/css" href="images/logo1.png">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- fevicon -->
-    <script src="https://kit.fontawesome.com/c0174eee9a.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- style css -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive-->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-    <!-- Tweaks for older IEs-->
-    
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-        media="screen">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext"
-        rel="stylesheet">
-    <!-- Styles -->
+  <title>SAFENET</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <link href="css/style3.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- Favicons -->
+  <link href="assets/img/logo1.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
-<!-- body -->
 
-<body class="main-layout">
-    <!-- loader  -->
-    <div class="loader_bg">
-        <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">SAFENET</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">Intro</a></li>
+          <li><a class="nav-link scrollto" href="#services">Architecture</a></li>
+          <li><a class="nav-link scrollto" href="#Technologies">Technologies</a></li>
+          <li><a class="nav-link scrollto" href="#Diagrams">Diagrams</a></li>
+          <li><a class="nav-link scrollto" href="#Budget">Budget</a></li>
+          <li><a class="nav-link scrollto" href="#UI/UX">UI/UX</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Details</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="portfolio-details.html">Mobile Application</a></li>
+              <li><a href="webinterface.html">Web Application</a></li>
+              <li><a href="AWS.html">AWS Deployment</a></li>
+            </ul>
+          </li>
+
+          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
-    <!-- end loader -->
-    <!-- header -->
-    <header>
-        <!-- header inner -->
-        <div class="header-top">
-            <div class="header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col logo_section">
-                            <div class="full">
-                                <div class="center-desk">
-                                    <div class="logo">
-                                        <a href="index.html"><img src="images/logo1.png" alt="#" width="80px" /></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9">
-    
-                            <div class="menu-area">
-                                <div class="limit-box">
-                                    <nav class="main-menu ">
-                                        <ul class="menu-area-main">
-                                            <li class="active"> <a href="index.html">Home</a> </li>
-                                            <li> <a href="#intro">Introduction</a> </li>
-                                            <li> <a href="#Architecture">Architecture</a> </li>
-                                            <li> <a href="#design">Design</a> </li>
-                                            <li> <a href="#Budget">Budget</a> </li>
-                                            <li> <a href="#Team">Team</a> </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end header inner -->
-    
-            <!-- end header -->
-            <section class="slider_section">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-    
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="text-bg">
-                                            <h1 align="right" style="color:white;"></h1>
-                                            <h1 align="right" style="color:white;"></h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </header>
+  </header><!-- End Header -->
 
-    <!-- about  -->
-    <div id="intro" class="about">
-        <div class="container">
-            <div class="row display_boxflex">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div class="about-box">
-                        <h1>Introduction</h1>
-                        <p>&nbsp&nbsp&nbsp&nbspFor years, the need to protect one’s property has become one of people’s
-                            main concerns. The sense of security and protection is one of those feelings that makes us
-                            comfortable and complements quality living. Although there are existing solutions for home
-                            security like video surveillance cameras, alarms etc., they are very expensive, and the
-                            installation process is also not easy. Most of the existing security system solutions
-                            address the needs of the people who are living in private houses. But people who live in
-                            apartments in urban areas have some added needs to be satisfied with a particular security
-                            system. Therefore, addressing all these issues along with some added unique features we have
-                            come up with the idea of a Smart Apartment Security System. Smart Apartment security system
-                            is a system that secure entry points, like doors and windows, as well as interior spaces in
-                            an apartment from a burglary or a fire by notifying the owners and security officer at the
-                            apartment gate whenever a threat has been identified through a mobile application.</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div class="about-box">
-                        <div class="iframe-container">
-                            <iframe width="360" src="https://www.youtube.com/embed/VlQeq6xBfcQ" title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end abouts -->
-    
-    <!--Solution Architecture-->
-    <div id="Architecture" class="about">
-        <div class="container">
-            <div class="row display_boxflex">
-                <div class="about-box">
-                    <h1>Solution Architecture</h1>
-                    <br><br>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-mobile fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h3 class="section-heading text-uppercase">Mobile Application</h3>
-                        <h4 class="text-muted" style="text-align: justify;" >An Android mobile application is available for
-                            SafeHome security system to allow users to remotely monitor and control the security system.
-                            Users are able to arm and disarm the system, get mobile alerts and contact the security
-                            officer whenever a threat has been identified by the security system. Users can log in to
-                            the mobile app anytime to view the status of sensors, activity logs for door locks and more
-                            as well. The app is designed using Flutter.
-                        </h4>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shield-alt fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h3 class="section-heading text-uppercase">Security System</h3>
-                        <h4 class="text-muted" style="text-align: justify">The security system is used to identify
-                            threats in the entry points and interior spaces of an apartment through sensors. It will
-                            consist of wireless sensors(door and window sensors, motion sensors, smoke detector), a
-                            siren and a smart door lock with fingerprint access for added security. ESP 32 development
-                            board is used as the microcontroller of the door lock and ESP-01S WiFi modules are used for
-                            wireless sensors. </h4>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-server fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h3 class="section-heading text-uppercase">Web Server</h3>
-                        <h4 class="text-muted" style="text-align: justify">AWS server is used as the web server for the
-                            SafeHome Security System. Signals from sensors are passed to the mobile application as well
-                            as control information from mobile applications are passed to the smart door lock and
-                            response mechanisms through this server. Database which is used to store sensor statuses and
-                            logs of the system is hosted at the server.</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h5 class="section-heading text-uppercase" style="text-align:center; font-size: 20px;">Highlevel
-                        Diagram</h5>
-                    <img class="img-fluid" src="images/System_Overview.jpg" width="70%" height="70%" ">
-                      </div>
-                  </div>
-                  <br>
-                  <div class=" row display_boxflex">
-                    <div class="about-box">
-                        <h1>Infrastructure</h1>
-                        <div class="container mydiv">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="bbb_deals">
-                                        <div class="bbb_deals_slider_container">
-                                            <div class=" bbb_deals_item">
-                                                <div class="bbb_deals_image"><img src="images/door_lock.jpeg" alt="">
-                                                </div>
-                                                <div class="bbb_deals_content">
-                                                    <div class="available">
-                                                        <div class="available_bar">
-                                                            <span style="width:17%"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="bbb_deals">
-                                        <div class="bbb_deals_slider_container">
-                                            <div class=" bbb_deals_item">
-                                                <div class="bbb_deals_image"><img src="images/sensor_unit.jpeg" alt="">
-                                                </div>
-                                                <div class="bbb_deals_content">
-                                                    <div class="available">
-                                                        <div class="available_bar"><span style="width:17%"></span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
 
-    <div id="Interfaces" class="about">
-        <div class="container">
-            <div class="row display_boxflex">
-                <div class="about-box" style="text-align:center;">
-                    <h1>Technologies</h1>
-                    <div class="container mydiv">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_title">Frontend Development</div>
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Technology/flutter.png"
-                                                    alt=""></div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar">
-                                                        <div>
-                                                            <p>As the front end development we use flutter as our front
-                                                                end development software in this development process the
-                                                                expectations are to provide user friendly and
-                                                                interesting interface with enhanced UI and UX experience
-                                                                to the client.Other than that cross platform support is
-                                                                required for us to maintain the target clients by giving
-                                                                them access to our services independant their mobile os
-                                                                type.</p>
-                                                                <br>
-                                                        </div>
-                                                        <span style="width:17%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_title">Backend Development</div>
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Technology/nodejs.png" alt="">
-                                            </div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar">
-                                                        <div>
-                                                            <p>In the backend server requires to handle a larger amount
-                                                                of requests. Therefore the scalability and
-                                                                sustainability if uncaught error exceptions happend are
-                                                                critical points under choosing a optimum backend server.
-                                                                For those requirements, Node js would be the best
-                                                                solution for this project. Therefore the backend server
-                                                                side requests managements are done by the NodeJs.</p>
-                                                                
-                                                        </div>
-
-                                                        <span style="width:17%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_title">Cloud Deployment</div>
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Technology/aws.png" alt="">
-                                            </div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar">
-                                                        <div>
-                                                            <p>Due to financial issues met in the process of developing
-                                                                the physical server of maintaining cost. The team sole
-                                                                decision and the academic guidance as well based on
-                                                                cloud services. Therefore the cloud server deployment
-                                                                was decieded. In that case the EC2 instance of AWS
-                                                                server support is selected.</p>
-                                                                <br><br><br><br><br><br><br><br><br><br><br>
-
-                                                        </div>
-
-                                                        <span style="width:17%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_title">Database Development</div>
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Technology/mysql.png" alt="">
-                                            </div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar">
-                                                        <div>
-                                                            <p>For storing data puroposes' requirements were the
-                                                                structured schema with the same type of data that have
-                                                                the ability to contain all the details of the target
-                                                                market when the product able to cover the whole market
-                                                                itself. Also the data base should be able to scalable
-                                                                from a smaller database. For these requirements are
-                                                                fulfil when the chosen selection was Mysql. Because the
-                                                                mysql have the ability contain 1000 different tables and
-                                                                all our reqiurements are fulfilled under 1000 tables.
-                                                                Also a table can record 21 million records with the
-                                                                space under 1GB. The maximum row table will be our user
-                                                                table but it will not exceed 21 million because the
-                                                                targeted ordience is less.</p>
-                                                        </div>
-                                                        <span style="width:17%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Circuit Diagrams-->
-    <div id="Interfaces" class="about">
-        <div class="container">
-            <div class="row display_boxflex">
-                <div class="about-box" style="text-align:center;">
-                    <h1>Circuit Diagrams</h1>
-                    <div class="container mydiv">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_title">Door Circuit Unit</div>
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Circuits/door_circuit.jpg"
-                                                    alt=""></div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar">
-                                                        <span style="width:17%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_title">Flame and PIR Sensor Unit</div>
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img
-                                                    src="images/Circuits/motion_and_pir_sensors.png" alt=""></div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar"><span style="width:17%"></span></div>
-                                                    <br>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_title">Window Sensor Unit</div>
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Circuits/window.png" alt="">
-                                            </div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar"><span style="width:17%"></span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="Interfaces" class="about">
-        <div class="container">
-            <div class="row display_boxflex">
-                <div class="about-box" style="text-align:center;">
-                    <h1>Schematic Diagrams</h1>
-                    <div class="container mydiv">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Schematics/flamesensor.png"></div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar">
-                                                        <span style="width:17%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="bbb_deals">
-                                    
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/schematics/frontdoor.png" alt="">
-                                            </div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar"><span style="width:17%"></span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="Interfaces" class="about">
-        <div class="container">
-            <div class="row display_boxflex">
-                <div class="about-box" style="text-align:center;">
-                    <h1>Hardware Design</h1>
-                    <div class="container mydiv">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="bbb_deals">
-                                    <div class="bbb_deals_slider_container">
-                                        <div class=" bbb_deals_item">
-                                            <div class="bbb_deals_image"><img src="images/Circuits/hardware.png" alt="">
-                                            </div>
-                                            <div class="bbb_deals_content">
-                                                <div class="available">
-                                                    <div class="available_bar">
-                                                        <span style="width:17%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- ER Diagrams-->
-<div id="Interfaces" class="about">
     <div class="container">
-        <div class="row display_boxflex">
-            <div class="about-box" style="text-align:center;">
-                <h1>Diagrams</h1>
-                <div class="container mydiv">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">ER Diagram</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/ERdiagram.jpg" alt=""></div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Relational Schema</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/RelationalSchema.jpg" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar"><span style="width:17%"></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+          data-aos="fade-up" data-aos-delay="200">
+          <h1>Smart Apartment Security System</h1>
+          <h2>Advanced Security and Faster Emergency Response</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="https://www.youtube.com/embed/VlQeq6xBfcQ" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
         </div>
-    </div>
-</div>
-
-<!-- Budget -->
-<div id="Budget" class="about">
-    <div class="container">
-        <div class="row display_boxflex">
-            <div class="about-box" style="text-align:center;">
-                <h1>Detailed Budget</h1>
-                <br><br>
-                <img src="images/budget.png">
-            </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
         </div>
+      </div>
     </div>
-</div>
-<!-- end Budget -->
 
-<div id="Interfaces" class="about">
-    <div class="container">
-        <div class="row display_boxflex">
-            <div class="about-box" style="text-align:center;">
-                <h1>Interfaces of Mobile Application</h1>
-                <div class="container mydiv">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">User Login Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/loginuser.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The user can login here. He has to enter his email address
-                                                            and password. Two factor authentication is used here.
-                                                            Therefore, an OTP is sent to the relevant email address. If
-                                                            the user doesn't have an account, he can sign up to the
-                                                            system.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Security Officer Login Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/loginso.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The security officer can login here. He has to enter his
-                                                            email address and password. Two factor authentication is
-                                                            also used here.
-                                                            Therefore, an OTP is sent to the relevant email address. The
-                                                            registration of security officer is done by the
-                                                            Administrator.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">User Home Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/homemode.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The user can change the mode of house. If the user select
-                                                            'Home Mode', the notifications wouldn't get when the motion,
-                                                            door and winsow semsors are triggering.
-                                                            There are 6 buttons in the home screen and user can go into
-                                                            the relevent option.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">User Registration Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/register.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The users can register here. The email address is verified
-                                                            by sending OTP. Only the owner of the house can register to
-                                                            the system.
-                                                            Other members of the house can login with his user
-                                                            credentials.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">User Details Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/userdetails.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The owner details can be seen here. The name and the phone
-                                                            number can be changed
-                                                            here. <br><br><br><br>
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Sensors' Details Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/sensordetails.png"
-                                                alt=""></div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            All the sensor details can be seen here.One button is to
-                                                            deactivate the sensors and
-                                                            other button is to give access to the
-                                                            security officer to enter the house when there is a security
-                                                            threat.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Layout Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/layout.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The user can find the places of the sensors in the house
-                                                            using the unique ID of
-                                                            them.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Notification Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/notification.png"
-                                                alt=""></div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The notifications when the sensors are triggering, can be
-                                                            seeen here. The date and
-                                                            time are also there.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Contact Details Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/contact.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The emergency contacts can be seen here. By pressing the
-                                                            button, the user can calling to the
-                                                            relevant person.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Security Officer Home Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/homeso.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            There are 4 buttons. <br>Using 'Front Door Sensors', SO can
-                                                            find the front door of houses which he can access.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">Sensor Details(SO) Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/sensoso.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            The status of all the sensors' of the apartment are showing
-                                                            here.
-                                                            The activate sensors of the apartment can be seen in red
-                                                            color.
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+  </section><!-- End Hero -->
 
-                        <div class="col-md-4">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_title">User Awaymode Interface</div>
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/MOBILEAPP/awaymode.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <div>
-                                                        <p>
-                                                            When the awaymode is activated, background color of the interface is changed blue to green and the sensors are not triggering<br>
-                                                        </p>
-                                                    </div>
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <main id="main">
+
+    <!-- ======= Clients Section ======= 
+    <section id="clients" class="clients section-bg">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div>
+
         </div>
-    </div>
-</div>
 
+      </div>
+    </section> End Cliens Section -->
 
-<div id="Interfaces" class="about">
-    <div class="container">
-        <div class="row display_boxflex">
-            <h1>Interfaces of Administrator Web Application</h1>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                    <li data-target="#myCarousel" data-slide-to="4"></li>
-                    <li data-target="#myCarousel" data-slide-to="5"></li>
-                    <li data-target="#myCarousel" data-slide-to="6"></li>
-                    <li data-target="#myCarousel" data-slide-to="7"></li>
-                </ol>
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/Webpage/users.png" alt="Los Angeles" style="width:100%;">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/Webpage/apartments.png" alt="Chicago" style="width:100%;">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/Webpage/so.png" alt="New york" style="width:100%;">
-                    </div>
-                    <div class="item">
-                        <img src="images/Webpage/sensors.png" alt="New york" style="width:100%;">
-                    </div>
-                    <div class="item">
-                        <img src="images/Webpage/layout.png" alt="New york" style="width:100%;">
-                    </div>
-                    <div class="item">
-                        <img src="images/Webpage/login.png" alt="New york" style="width:100%;">
-                    </div>
-                    <div class="item">
-                        <img src="images/Webpage/officerreg.png" alt="New york" style="width:100%;">
-                    </div>
-                    <div class="item">
-                        <img src="images/Webpage/apreg.png" alt="New york" style="width:100%;">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+        <div class="section-title">
+          <h2>Introduction</h2>
         </div>
-    </div>
-</div>
 
-<div id="Interfaces" class="about">
-    <div class="container">
-        <div class="row display_boxflex">
-            <h1>AWS Deployment</h1>
-            <div id="myCarousel1" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel1" data-slide-to="1"></li>
-                    <li data-target="#myCarousel1" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/AWS/AWS instance.jpg" alt="Los Angeles" style="width:100%;">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/AWS/AWS instance2.jpg" alt="Chicago" style="width:100%;">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/AWS/security group.jpg" alt="New york" style="width:100%;">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel1" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel1" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+        <div class="row content">
+          <div class="col-lg-12">
+            <p>
+              For years, the need to protect one’s property has become one of people’s
+              main concerns. The sense of security and protection is one of those feelings that makes us
+              comfortable and complements quality living. Although there are existing solutions for home
+              security like video surveillance cameras, alarms etc, they are very expensive, and the
+              installation process is also not easy. Most of the existing security system solutions
+              address the needs of the people who are living in private houses. But people who live in
+              apartments in urban areas have some added needs to be satisfied with a particular security
+              system. Therefore, addressing all these issues along with some added unique features we have
+              come up with the idea of a Smart Apartment Security System. Smart Apartment security system
+              is a system that secure entry points, like doors and windows, as well as interior spaces in
+              an apartment from a burglary or a fire by notifying the owners and security officer at the
+              apartment gate whenever a threat has been identified through a mobile application.
+            </p>
+            <a href="https://www.youtube.com/embed/VlQeq6xBfcQ" class="btn-learn-more">Learn More</a>
+          </div>
         </div>
-    </div>
-</div>
 
-<section id="Budget" class="about">
-    <div class="container">
-        <div class="col-lg-12">
-            <div class="mt-10 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.5s">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="section-title pb-10">
-                            <div class="line"></div>
-                            <h1 >Security</h1>
-                        </div> <!-- section title -->
-                    </div>
-                </div> <!-- row -->
-                <div>
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="services" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3><strong>Solution Architecture</strong></h3>
+              <!--<p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+              </p>-->
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span>
+                    Mobile Application <i class="bx bx-chevron-down icon-show"></i><i
+                      class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
                     <p>
-                        <span>
-                            <h3>
-                            Security is the most important thing in the IT world right now.
-                            In our solution, we have deeply considered the security point of view of our system.<br>
-                            We have developed our system with the help of the following techniques to enhance the
-                            application security in our solution.
-                        </h3>
-                        </span>
-                    <ul>
-                        <li><br>
-                            <h1>JSON Web Tokens (JWT)</h1>
-                        </li>
-                        <p style="margin-left: 40px">
-                            <h3>
-                            Our application use JSON Web Tokens (JWT) to allow the client to indicate its identity for
-                            further exchange after authentication. It is a self-contained way for securely transmitting
-                            information between parties.
-                        </h3>
-                        </p>
-                        <li><br>
-                            <h1>User Input validation </h1>
-                        </li>
-                        <p style="margin-left: 40px">
-                            <h3>
-                            This prevents improperly formed data from entering an information system. Because it is
-                            difficult to detect a malicious user who is trying to attack software, applications should
-                            check and validate all input entered into a system specially in Resgistration and Login.
-                            Input validation as a mitigation strategy for both SQL injection and XSS.
-                        </h3>
-                        </p>
-                        <li><br>
-                            <h1>Two Factor Authentication </h1>
-                        </li>
-                        <p style="margin-left: 40px">
-                            <h3>
-                            Used in Authentication is used in the Registration of the Mobile Application. When Email is
-                            provided, OTP is sent to email address and user has to Enter that OTP for the registration.
-                        </h3>
-                        </p>
-                        <li><br>
-                            <h1>Password Hashing</h1>
-                        </li>
-                        <p style="margin-left: 40px">
-                            <h3>
-                            Password hashing is used in our application to verify the integrity of passwords, sent
-                            during login, against the stored hash so that actual passwords never has to be stored. A
-                            salt is added to the hashing process to force their uniqueness, increase their complexity
-                            without increasing user requirements, and to mitigate password attacks like hash tables
-                        </h3>
-                        </p>
-                        <li><br>
-                            <h1>AWS EC2 Security Groups</h1>
-                        </li>
-                        <p style="margin-left: 40px">
-                            <h3>
-                            A custom security group is assigned to the instance where our application is deployed which
-                            allows only http/tcp connections on port 80. Security groups offer protection at the ports
-                            and protocol access level.
-                        </h3>
-                        </p>
-                    </ul>
+                      SafeHome security system to allow users to remotely monitor and control the security system.
+                      Users are able to arm and disarm the system, get mobile alerts and contact the security
+                      officer whenever a threat has been identified by the security system. Users can log in to
+                      the mobile app anytime to view the status of sensors, activity logs for door locks and more
+                      as well. The app is designed using Flutter.
                     </p>
-                </div>
-            </div> <!-- about content -->
-        </div>
-    </div>
-</section>
-<!-- Testing plan -->
-<div id="Interfaces" class="about">
-    <div class="container">
-        <div class="row display_boxflex">
-            <div class="about-box" style="text-align:center;">
-                <h1>Testing Plan</h1>
-                <div class="container mydiv">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/Testing/Testing_plan.png" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end testing plan -->
-  
+                  </div>
+                </li>
 
-<!-- Time line -->
-<div id="Interfaces" class="about">
-    <div class="container">
-        <div class="row display_boxflex">
-            <div class="about-box" style="text-align:center;">
-                <h1>Project Timeline</h1>
-                <div class="container mydiv">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bbb_deals">
-                                <div class="bbb_deals_slider_container">
-                                    <div class=" bbb_deals_item">
-                                        <div class="bbb_deals_image"><img src="images/timeline.jpeg" alt="">
-                                        </div>
-                                        <div class="bbb_deals_content">
-                                            <div class="available">
-                                                <div class="available_bar">
-                                                    <span style="width:17%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end time line -->
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span>
+                    Security System<i class="bx bx-chevron-down icon-show"></i><i
+                      class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                      The security system is used to identify
+                      threats in the entry points and interior spaces of an apartment through sensors. It will
+                      consist of wireless sensors(door and window sensors, motion sensors, smoke detector), a
+                      siren and a smart door lock with fingerprint access for added security. ESP 32 development
+                      board is used as the microcontroller of the door lock and ESP-01S WiFi modules are used for
+                      wireless sensors.
+                    </p>
+                  </div>
+                </li>
 
-<div id="Interfaces" class="about">
-    <div class="container">
-                <a href="video.html"><h1>Link to Demonstrations</h1></a>
-    </div>
-</div>
-<!-- Team members -->
-<div id="Team" class="basic-2">
-    <div class="container">
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Web
+                    Server <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                      AWS server is used as the web server for the
+                      SafeHome Security System. Signals from sensors are passed to the mobile application as well
+                      as control information from mobile applications are passed to the smart door lock and
+                      response mechanisms through this server. Database which is used to store sensor statuses and
+                      logs of the system is hosted at the server.
+                    </p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
+            style='background-image: url("assets/img/Architecture/System_Overview.jpg");' data-aos="zoom-in"
+            data-aos-delay="150">&nbsp;</div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Infrastructure</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
         <div class="row">
-            <div class="col-lg-12">
-                <h2>Our Team Members</h2>
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Architecture/door_lock.jpeg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Architecture/sensor_unit.jpeg" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Skills Section ======= 
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+
         <div class="row">
-            <div class="col-lg-12">
-                <div class="team-member">
-                    <div class="image-wrapper">
-                        <img class="img-fluid" src="images/dananjaya.jpg" alt="alternative" width="230  px">
-                    </div> <!-- end of image-wrapper -->
-                    <p class="p-large">Dananjaya Morais</p>
-                    <p class="job-title">E/17/212</p>
-                    <span class="social-icons">
-                        <span class="fa-stack">
-                            <a href="https://web.facebook.com/nisansala.dananjaya">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-facebook-f fa-stack-1x" style="color:blue"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="https://www.linkedin.com/in/nisansala-dananjaya-04a36a194/">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-linkedin-square" style="color:blue"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="mailto:e17212@eng.pdn.ac.lk">
-                                <span class="hexagon"></span>
-                                <i class="fas fa-envelope" style="color:blue"></i>
-                            </a>
-                        </span>
-                    </span>
-                </div> <!-- end of team-member -->
-                <!-- end of team member -->
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/skills.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
 
-                <!-- Team Member -->
-                <div class="team-member">
-                    <div class="image-wrapper">
-                        <img class="img-fluid" src="images/ishini.jpeg" alt="alternative" width="300px">
-                    </div> <!-- end of image wrapper -->
-                    <p class="p-large">Ishini Udara</p>
-                    <p class="job-title">E/17/312</p>
-                    <span class="social-icons">
-                        <span class="fa-stack">
-                            <a href="https://web.facebook.com/ishini.u">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-facebook-f fa-stack-1x" style="color:blue"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-linkedin-square" style="color:blue"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="mailto:e17312@eng.pdn.ac.lk">
-                                <span class="hexagon"></span>
-                                <i class="fas fa-envelope" style="color:blue"></i>
-                            </a>
-                        </span>
-                    </span>
-                </div> <!-- end of team-member -->
-                <!-- end of team member -->
+            <div class="skills-content">
 
-                <!-- Team Member -->
-                <div class="team-member">
-                    <div class="image-wrapper">
-                        <img class="img-fluid" src="images/kanishka.jpeg" alt="alternative" width="210px">
-                    </div> <!-- end of image wrapper -->
-                    <p class="p-large">Kanishka Dilhan</p>
-                    <p class="job-title">E/17/065</p>
-                    <span class="social-icons">
-                        <span class="fa-stack">
-                            <a href="https://web.facebook.com/kanishka.dilhan">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-facebook-f fa-stack-1x" style="color:blue"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-linkedin-square" style="color:blue"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="mailto:e17065@eng.pdn.ac.lk">
-                                <span class="hexagon"></span>
-                                <i class="fas fa-envelope" style="color:blue"></i>
-                            </a>
-                        </span>
-                    </span>
-                </div> <!-- end of team-member -->
-                <!-- end of team member -->
-                <br>
-                <div class="text-center">
-                    <h3 class="section-heading text-uppercase">Our Advisors</h3>
+              <div class="progress">
+                <span class="skill">HTML <i class="val">100%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
+              </div>
 
-                        <!-- Team Member -->
-                        <div class="team-member">
-                            <div class="image-wrapper">
-                                <img class="img-fluid" src="images/isuru.png" alt="alternative" width="200px">
-                            </div> <!-- end of image-wrapper -->
-                            <p class="p-large">Dr.Isuru Nawinne</p>
-                            <span class="social-icons">
-                                <span class="fa-stack">
-                                    <a href="https://www.linkedin.com/in/isuru-nawinne-73302833">
-                                        <span class="hexagon"></span>
-                                        <i class="fab fa-linkedin-square" style="color:blue"></i>
-                                    </a>
-                                </span>
-                                <span class="fa-stack">
-                                    <a href="mailto:isurunawinne@eng.pdn.ac.lk">
-                                        <span class="hexagon"></span>
-                                        <i class="fas fa-envelope" style="color:blue"></i>
-                                    </a>
-                                </span>
-                            </span>
-                        </div> <!-- end of team-member -->
-                        <!-- end of team member -->
-
-                        <!-- Team Member -->
-                        <div class="team-member">
-                            <div class="image-wrapper">
-                                <img class="img-fluid" src="images/Dr_Mahanama.jfif" alt="alternative" width="180px">
-                            </div> <!-- end of image wrapper -->
-                            <p>Dr.Mahanama Wickramasinghe</p>
-                            <span class="social-link">
-                                <span class="fa-stack">
-                                    <a href="https://www.linkedin.com/in/mahanama/">
-                                        <span class="hexagon"></span>
-                                        <i class="fab fa-linkedin-square" style="color:blue"></i>
-                                    </a>
-                                </span>
-                                <span class="fa-stack">
-                                    <a href="mailto:mahanamaw@eng.pdn.ac.lk">
-                                        <span class="hexagon"></span>
-                                        <i class="fas fa-envelope" style="color:blue"></i>
-                                    </a>
-                                </span>
-                            </span>
-                        </div> <!-- end of team-member -->
-
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of basic-2 -->
-        <!-- end of team -->
-        <!-- Clients-->
-        <div class="py-5 bg-light">
-            <div class="container">
-                <div class="text-center">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-12 my-3">
-                            <a href="https://www.pdn.ac.lk/" target="_blank"><img class="img-fluid d-block mx-auto"
-                                    height="75" width="75" src="images/logo1.png" alt="" /></a>
-                            <h5>University of Peradeniya<span>.</span></h5>
-                            <p>
-                                <strong>Phone:</strong> +94 81 239 33 00<br>
-                                <strong>Email:</strong> vc@pdn.ac.lk<br>
-                                <strong>Web-site:</strong> <a href="http://www.pdn.ac.lk/"
-                                    target="_blank">http://www.pdn.ac.lk/</a> <br>
-                            </p>
-                        </div>
-                        <div class="col-md-4 col-sm-12 my-3">
-                            <a href="http://eng.pdn.ac.lk/" target="_blank"><img class="img-fluid d-block mx-auto"
-                                    height="150" width="100" src="images/logo1.png" alt="" /></a>
-                            <h5>Faculty of Engineering<span>.</span></h5>
-                            <p>
-                                <strong>Phone:</strong> +94 81 239 33 02<br>
-                                <strong>Web-site:</strong> <a href="http://eng.pdn.ac.lk/"
-                                    target="_blank">http://eng.pdn.ac.lk/</a> <br>
-                            </p>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12 my-3">
-                            <a href="http://www.ce.pdn.ac.lk/" target="_blank"><img class="img-fluid d-block mx-auto"
-                                    height="75" width="75" src="images/aces.jpeg" alt="" /></a>
-                            <h5>Computer Engineering Department<span>.</span></h5>
-                            <p>
-                                <strong>Phone:</strong> +94 81 239 39 14<br>
-                                <strong>Web-site:</strong> <a href="http://www.ce.pdn.ac.lk/"
-                                    target="_blank">http://www.ce.pdn.ac.lk/</a> <br>
-                            </p>
-                        </div>
-                    </div>
-
+              <div class="progress">
+                <span class="skill">CSS <i class="val">90%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">JavaScript <i class="val">75%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">Photoshop <i class="val">55%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
             </div>
+
+          </div>
         </div>
-        <!--git repo-->
-        <div class="py-5">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Github repo</h2><br>
-                    <h4 class="section-subheading text-muted">Find more informations and
-                        codes details.</h4><br>
-                    <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-                        href="https://github.com/cepdnaclk/e17-3yp-smart-apartment-security-system" target="_blank"><i
-                            class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <!--  footer -->
-        <footr>
-            <div class="copyright">
-                <p>Copyright 2019 All Right Reserved By Department of Computer Engineering/FOE/UOP</a></p>
-            </div>
-        </footr>
-        <!-- end footer -->
-        <!-- Javascript files-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery-3.0.0.min.js"></script>
-        <script src="js/plugin.js"></script>
-        <!-- sidebar -->
-        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-        </body>
 
-        </html>
+      </div>
+    </section> End Skills Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="Technologies" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Technologies</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+
+        <div class="row">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Frontend Development Flutter</a></h4>
+              <p>As the front end development we use flutter as our front
+                end development software in this development process the
+                expectations are to provide user friendly and
+                interesting interface with enhanced UI and UX experience
+                to the client.Other than that cross platform support is
+                required for us to maintain the target clients by giving
+                them access to our services independant their mobile os
+                type.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Backend Development NodeJs</a></h4>
+              <p>In the backend server requires to handle a larger amount
+                of requests. Therefore the scalability and
+                sustainability if uncaught error exceptions happend are
+                critical points under choosing a optimum backend server.
+                For those requirements, Node js would be the best
+                solution for this project. Therefore the backend server
+                side requests managements are done by the NodeJs.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+            data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Cloud Deployment AWS</a></h4>
+              <p>Due to financial issues met in the process of developing
+                the physical server of maintaining cost. The team sole
+                decision and the academic guidance as well based on
+                cloud services. Therefore the cloud server deployment
+                was decieded. In that case the EC2 instance of AWS
+                server support is selected.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
+            data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-layer"></i></div>
+              <h4><a href="">Database Development MySQL</a></h4>
+              <p>For storing data puroposes' requirements were the
+                structured schema with the same type of data that have
+                the ability to contain all the details of the target
+                market when the product able to cover the whole market
+                itself. Also the data base should be able to scalable
+                from a smaller database. For these requirements are
+                fulfil when the chosen selection was Mysql. Because the
+                mysql have the ability contain 1000 different tables and
+                all our reqiurements are fulfilled under 1000 tables.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    </section><!-- End Why Us Section -->
+    <!-- ======= Skills Section ======= -->
+    <section id="Diagrams" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Circuit Diagrams</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Circuits/door_circuit.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-4 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Circuits/motion_and_pir_sensors.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-4 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Circuits/window.png" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    </section><!-- End Why Us Section -->
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Schematic Diagrams</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Schematics/frontdoor.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Schematics/flamesensor.png" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    </section><!-- End Why Us Section -->
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Hardware Designs</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Hardware Design/hardware.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Hardware Design/Cad Design.png" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-12 text-center text-lg-start">
+            <h3>Hardware Design</h3>
+            <a href="https://youtu.be/BjmJDe_eDC4" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    </section><!-- End Why Us Section -->
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>ER Diagram and Relational Schema</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Diagrams/ERdiagram.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Diagrams/RelationalSchema.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+    </section><!-- End Why Us Section -->
+    <!-- ======= Skills Section ======= -->
+    <section id="Budget" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Detailed Budget</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/budget.png" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-6 text-center text-lg-start">
+            <h3>User Manual and Design Manual</h3>
+          </div>
+
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle"
+              href="https://drive.google.com/drive/folders/1Cw9HXgyzMCvIZO5GUXQj2UCN0xktcciI?usp=sharing">Download</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="UI/UX" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>UI/UX Designs</h2>
+          <p>There is a mobile application for house owners and Security officers in the apartment and there is a web
+            application for the administrator</p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <li data-filter=".filter-app">Mobile Application</li>
+          <li data-filter=".filter-web">Web Application</li>
+        </ul>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="assets/img/MobileApp/loginuser.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>User Login Interface</h4>
+              <p>App</p>
+              <a href="assets/img/MobileApp/loginuser.png" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="assets/img/MobileApp/homemode.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>User Home Interface</h4>
+              <p>App</p>
+              <a href="assets/img/MobileApp/homemode.png" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="assets/img/MobileApp/register.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Registration Interface</h4>
+              <p>App</p>
+              <a href="assets/img/MobileApp/register.png" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="App 4"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="assets/img/Webpage/login.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Administrator Login Interface</h4>
+              <p>Web</p>
+              <a href="assets/img/Webpage/login.png" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Web 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="assets/img/Webpage/users.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>User Details</h4>
+              <p>Web</p>
+              <a href="assets/img/Webpage/users.png" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Portfolio Section -->
+
+     <!-- ======= Cta Section ======= -->
+     <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-6 text-center text-lg-start">
+            <h3>Door Lock Installation</h3>
+            <a href="https://youtu.be/ROoMWr5R3Wc" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+          <div class="col-lg-6 text-center text-lg-start">
+            <h3>Sensor Unit Installation</h3>
+            <a href="https://youtu.be/lMZp_57o84Y" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Testing Plan</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/Testing/Testing_plan.png" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+    
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-12 text-center text-lg-start">
+            <h3>Testing</h3>
+            <a href="https://youtu.be/kYwkeN-z88o" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section --> 
+
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Project Timeline</h2>
+          <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+        </div>
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/timeline.jpeg" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-6 text-center text-lg-start">
+            <h3>Flame Sensor Demo</h3>
+            <a href="https://youtu.be/fouxu54Q-xE" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+          <div class="col-lg-6 text-center text-lg-start">
+            <h3>Window Sensor Demo</h3>
+            <a href="https://youtu.be/ebCZaoPpOsU" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Security</h2>
+          <p>Security is the most important thing in the IT world right now.
+            In our solution, we have deeply considered the security point of view of our system.
+            We have developed our system with the help of the following techniques to enhance the
+            application security in our solution.</p>
+        </div>
+
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-plus"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">JSON
+                Web Tokens (JWT) <i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                <p>
+                  Our application use JSON Web Tokens (JWT) to allow the client to indicate its identity for
+                  further exchange after authentication. It is a self-contained way for securely transmitting
+                  information between parties.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-plus"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2"
+                class="collapsed">User Input validation <i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  This prevents improperly formed data from entering an information system. Because it is
+                  difficult to detect a malicious user who is trying to attack software, applications should
+                  check and validate all input entered into a system specially in Resgistration and Login.
+                  Input validation as a mitigation strategy for both SQL injection and XSS.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-plus"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Two
+                Factor Authentication<i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Used in Authentication is used in the Registration of the Mobile Application. When Email is
+                  provided, OTP is sent to email address and user has to Enter that OTP for the registration.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-plus"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
+                class="collapsed">Password Hashing<i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Password hashing is used in our application to verify the integrity of passwords, sent
+                  during login, against the stored hash so that actual passwords never has to be stored. A
+                  salt is added to the hashing process to force their uniqueness, increase their complexity
+                  without increasing user requirements, and to mitigate password attacks like hash tables.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="500">
+              <i class="bx bx-plus"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">AWS
+                EC2 Security Groups<i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  A custom security group is assigned to the instance where our application is deployed which
+                  allows only http/tcp connections on port 80. Security groups offer protection at the ports
+                  and protocol access level.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+
+     <!-- ======= Cta Section ======= -->
+     <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-4 text-center text-lg-start">
+            <h3>Mobile Application Demo</h3>
+            <a href="https://youtu.be/Uzr3D2YUjhs" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+          <div class="col-lg-4 text-center text-lg-start">
+            <h3>Web Application Demo</h3>
+            <a href="https://youtu.be/5srlkilvPkA" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+
+          <div class="col-lg-4 text-center text-lg-start">
+            <h3>Door Lock Demo</h3>
+            <a href="https://youtu.be/sXCeR2Ux5vw" class="glightbox btn-watch-video"><i
+                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Our Team Members</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/dananjaya.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dananjaya Morais</h4>
+                <span>Undergraduate - Department of Computer Engineering</span>
+                <p>University of Peradeniya</p>
+                <div class="social">
+                  <a href="https://web.facebook.com/nisansala.dananjaya"><i class="ri-facebook-fill"></i></a>
+                  <a href="mailto:e17212@eng.pdn.ac.lk"><i class="fa-solid fa-envelope"></i></a>
+                  <a href="https://www.linkedin.com/in/nisansala-dananjaya-04a36a194/"> <i
+                      class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
+              <div class="pic"><img src="assets/img/team/ishini.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Ishini Udara</h4>
+                <span>Undergraduate - Department of Computer Engineering</span>
+                <p>University of Peradeniya</p>
+                <div class="social">
+                  <a href="https://web.facebook.com/ishini.u"><i class="ri-facebook-fill"></i></a>
+                  <a href="mailto:e17312@eng.pdn.ac.lk"><i class="fa-solid fa-envelope"></i></a>
+                  <a href="https://www.linkedin.com/in/ishini-sangarasekara-567720186/"> <i
+                      class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
+              <div class="pic"><img src="assets/img/team/kanishka.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Kanishka Dilhan</h4>
+                <span>Undergraduate - Department of Computer Engineering</span>
+                <p>University of Peradeniya</p>
+                <div class="social">
+                  <a href="https://web.facebook.com/kanishka.dilhan"><i class="ri-facebook-fill"></i></a>
+                  <a href="mailto:e17065@eng.pdn.ac.lk"><i class="fa-solid fa-envelope"></i></a>
+                  <a href="https://www.linkedin.com/in/kanishka-dilhan1997/"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Our Advicors</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
+              <div class="pic"><img src="assets/img/team/isuru.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dr.Isuru Nawinne</h4>
+                <span>Senior Lecturer - Department of Computer Engineering</span>
+                <p>University of Peradeniya</p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/isuru-nawinne-73302833"> <i class="ri-linkedin-box-fill"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
+              <div class="pic"><img src="assets/img/team/Dr_Mahanama.jfif" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dr. Mahanama Wickramasinghe</h4>
+                <span>Senior Lecturer - Department of Computer Engineering</span>
+                <p>University of Peradeniya</p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/mahanama/"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Pricing Section ======= 
+    <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Pricing</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="box">
+              <h3>Free Plan</h3>
+              <h4><sup>$</sup>0<span>per month</span></h4>
+              <ul>
+                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+                <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
+                <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+              </ul>
+              <a href="#" class="buy-btn">Get Started</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="box featured">
+              <h3>Business Plan</h3>
+              <h4><sup>$</sup>29<span>per month</span></h4>
+              <ul>
+                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
+                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+              </ul>
+              <a href="#" class="buy-btn">Get Started</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="box">
+              <h3>Developer Plan</h3>
+              <h4><sup>$</sup>49<span>per month</span></h4>
+              <ul>
+                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
+                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+              </ul>
+              <a href="#" class="buy-btn">Get Started</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> End Pricing Section -->
+
+    <!-- ======= Contact Section ======= 
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section> End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>SAFENET</h3>
+            <p>
+              Department of Computer Engineering <br>
+              University of Peradeniya<br>
+              Sri Lanka <br><br>
+              <strong>Phone:</strong> 0812 393 300<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a
+                  href="https://github.com/cepdnaclk/e17-3yp-smart-apartment-security-system">Github Repository</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.ce.pdn.ac.lk/">Department of Computer
+                  Engineering</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://eng.pdn.ac.lk/">Faculty of Engineering</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.pdn.ac.lk/">University of Peradeniya</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SAFENET</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
